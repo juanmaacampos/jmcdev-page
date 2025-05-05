@@ -1,0 +1,317 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(23, 23, 23, 0.8);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;  /* Movemos la transición aquí */
+}
+
+.logo img {
+  height: 100%;
+  width: auto;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.nav-links {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.nav-link:hover {
+  background-color: rgba(40, 40, 40, 0.697);
+}
+
+.cta-button {
+  background-color: rgb(23, 45, 226);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cta-button:hover {
+  background-color: rgb(19, 37, 185);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(23, 45, 226, 0.3);
+}
+
+.menu-button {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+}
+
+.menu-button::before,
+.menu-button::after,
+.menu-button span {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: white;
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.menu-button::before {
+  top: 5px;
+}
+
+.menu-button span {
+  top: 14px;
+}
+
+.menu-button::after {
+  bottom: 5px;
+}
+
+/* Animación del ícono cuando está activo */
+.menu-button.active::before {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-button.active span {
+  opacity: 0;
+}
+
+.menu-button.active::after {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.mobile-nav {
+  display: none;
+}
+
+.mobile-dropdown {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 1rem;
+  }
+
+  .menu-button {
+    display: block;
+    z-index: 100;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: -300px;
+    left: 0;
+    right: 0;
+    background-color: rgba(23, 23, 23, 0.98);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+    padding: 2rem;
+    opacity: 0;
+  }
+
+  .nav-links.active {
+    top: 100%;
+    opacity: 1;
+  }
+
+  .nav-link {
+    font-size: 1.2rem;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(23, 23, 23, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 0.8rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+  }
+
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #808080;
+    text-decoration: none;
+    font-size: 0.75rem;
+    gap: 0.3rem;
+    transition: all 0.3s ease;
+  }
+
+  .nav-item svg {
+    font-size: 1.2rem;
+  }
+
+  .nav-item:hover,
+  .nav-item.active {
+    color: #55d3c4;
+  }
+
+  .desktop-links {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: -200px;
+    left: 0;
+    right: 0;
+    background: rgba(23, 23, 23, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .mobile-menu.active {
+    top: 100%;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .menu-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .menu-item svg {
+    font-size: 1.2rem;
+    color: #55d3c4;
+  }
+
+  .menu-item a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+
+  .menu-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .mobile-dropdown {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(23, 23, 23, 0.98);
+    transform: translateY(-1rem);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    padding: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-dropdown.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-menu-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .menu-item {
+    color: #808080;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .menu-icon {
+    font-size: 1.5rem;
+  }
+
+  .menu-item:hover {
+    color: #55d3c4;
+  }
+
+  .menu-item span {
+    font-size: 0.8rem;
+  }
+}

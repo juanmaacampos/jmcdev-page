@@ -1,0 +1,128 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8em 1.6em;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background-color: var(--button-color);
+  color: #171717;
+  font-family: var(--font-primary);
+}
+
+/* Sizes */
+.small {
+  font-size: 0.875rem;
+  padding: 0.5em 1em;
+}
+
+.medium {
+  font-size: 1rem;
+  padding: 0.8em 1.6em;
+}
+
+.big {
+  font-size: 1.25rem;
+  padding: 1em 2em;
+}
+
+/* Shapes */
+.normal {
+  border-radius: 8px;
+}
+
+.square {
+  aspect-ratio: 1;
+  padding: 0;
+  width: 3em;
+  height: 3em;
+}
+
+/* Effects */
+.normal:hover {
+  background-color: transparent;
+  color: var(--button-color);
+  box-shadow: inset 0 0 0 2px var(--button-color);
+  transform: translateY(-2px);
+}
+
+.neon {
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  color: var(--button-color);
+  box-shadow: inset 0 0 0 2px var(--button-color);
+}
+
+.neon:hover {
+  background-color: var(--button-color);
+  color: #171717;
+  box-shadow: 
+    0 0 20px var(--button-glow),
+    0 0 40px var(--button-glow),
+    inset 0 0 0 2px var(--button-color);
+  transform: translateY(-2px);
+}
+
+.neon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    var(--button-glow),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.neon:hover::before {
+  left: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .button {
+    font-size: 0.9rem;
+  }
+  
+  .big {
+    font-size: 1.1rem;
+  }
+}
+
+.primary {
+  background: linear-gradient(45deg,
+    rgba(85, 211, 196, 0.2) 0%,
+    rgba(85, 211, 196, 1) 50%,
+    rgba(85, 211, 196, 0.2) 100%
+  );
+  animation: shimmerEffect 2s linear infinite,
+             glow 2s ease-in-out infinite;
+}
+
+@keyframes shimmerEffect {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3);
+  }
+}

@@ -1,0 +1,18 @@
+.logo {
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.logo img {
+  height: 100%;
+  width: auto;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}

@@ -1,0 +1,97 @@
+.loaderContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  background-color: #0a0a0a;
+  animation: fadeOut 0.3s ease-out 1.8s forwards;
+}
+
+.stripe {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  transform: translateX(-100%) skewX(-30deg);
+  animation: sweepAnimation 2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  left: -50%;
+  background-size: 200% 100%;
+}
+
+.stripe1 {
+  background: linear-gradient(45deg, 
+    rgba(85, 211, 196, 0.2) 0%,
+    rgba(85, 211, 196, 1) 50%,
+    rgba(85, 211, 196, 0.2) 100%
+  );
+  box-shadow: 0 0 25px rgba(85, 211, 196, 0.7),
+              0 0 50px rgba(85, 211, 196, 0.5);
+  animation: sweepAnimation 2s cubic-bezier(0.65, 0, 0.35, 1) forwards,
+             shimmer 1.5s linear infinite,
+             glow 2s ease-in-out infinite;
+}
+
+.stripe2 {
+  background: linear-gradient(45deg,
+    rgba(19, 19, 19, 0.4) 0%,
+    rgba(26, 26, 26, 1) 50%,
+    rgba(19, 19, 19, 0.4) 100%
+  );
+  box-shadow: none;
+  animation: sweepAnimation 2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+.stripe3 {
+  background: linear-gradient(45deg,
+    rgba(85, 211, 196, 0.2) 0%,
+    rgba(85, 211, 196, 1) 50%,
+    rgba(85, 211, 196, 0.2) 100%
+  );
+  box-shadow: 0 0 25px rgba(85, 211, 196, 0.7),
+              0 0 50px rgba(85, 211, 196, 0.5);
+  animation: sweepAnimation 2s cubic-bezier(0.65, 0, 0.35, 1) forwards,
+             shimmer 1.5s linear infinite,
+             glow 2s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+@keyframes sweepAnimation {
+  0% {
+    transform: translateX(-100%) skewX(-30deg);
+  }
+  100% {
+    transform: translateX(100%) skewX(-30deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.5);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

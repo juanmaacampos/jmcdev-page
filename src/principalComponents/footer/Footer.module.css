@@ -1,0 +1,56 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: #1a1a1a;
+  color: #fff;
+  font-family: 'Geologica', sans-serif;
+  border-top: 1px solid #333;
+}
+
+.footerSection {
+  flex: 1;
+}
+
+.centerSection {
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.copyright {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.copyright span {
+  color: #fff;
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .socialLinks {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
