@@ -23,15 +23,10 @@ const Navbar = () => {
 
         {/* Regular navbar links - visible on desktop */}
         <div className="nav-links">
-          <Link to="/planes" className="nav-link">Planes</Link>
-          <Link to="/nosotros" className="nav-link">Nosotros</Link>
-          <Link to="/contacto" className="nav-link">Contacto</Link>
-          <Button 
-            label="Ver Planes" 
-            to="/planes" 
-            effect="neon"
-            size="small"
-          />
+          <Button to="/" label="Inicio" effect="neon" size="small" icon={<FaHome />} />
+          <Button to="/planes" label="Planes" effect="neon" size="small" icon={<FaClipboardList />} />
+          <Button to="/nosotros" label="Nosotros" effect="neon" size="small" icon={<FaUser />} />
+          <Button to="/contacto" label="Contacto" effect="neon" size="small" icon={<FaEnvelope />} />
         </div>
 
         {/* Mobile menu button */}
@@ -43,22 +38,10 @@ const Navbar = () => {
       {/* Mobile dropdown menu */}
       <div className={`mobile-dropdown ${isMenuOpen ? 'active' : ''}`}>
         <div className="mobile-menu-items">
-          <Link to="/" className="menu-item">
-            <FaHome className="menu-icon" />
-            <span>Inicio</span>
-          </Link>
-          <Link to="/planes" className="menu-item">
-            <FaClipboardList className="menu-icon" />
-            <span>Planes</span>
-          </Link>
-          <Link to="/nosotros" className="menu-item">
-            <FaUser className="menu-icon" />
-            <span>Nosotros</span>
-          </Link>
-          <Link to="/contacto" className="menu-item">
-            <FaEnvelope className="menu-icon" />
-            <span>Contacto</span>
-          </Link>
+          <Button to="/" label="Inicio" effect="neon" size="small" icon={<FaHome />} />
+          <Button to="/planes" label="Planes" effect="neon" size="small" icon={<FaClipboardList />} />
+          <Button to="/nosotros" label="Nosotros" effect="neon" size="small" icon={<FaUser />} />
+          <Button to="/contacto" label="Contacto" effect="neon" size="small" icon={<FaEnvelope />} />
         </div>
       </div>
     </nav>

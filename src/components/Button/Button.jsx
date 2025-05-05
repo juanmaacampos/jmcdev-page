@@ -1,7 +1,8 @@
-import styles from './Button.module.css';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import styles from './Button.module.css';
 
-function Button({ 
+function Button({
   label,
   onClick,
   to,
@@ -11,7 +12,8 @@ function Button({
   shape = 'normal',
   className = '',
   style = {},
-  ...props 
+  icon, // Nuevo prop para el icono
+  ...props
 }) {
   const buttonClasses = `
     ${styles.button} 
@@ -31,6 +33,21 @@ function Button({
     })
   };
 
+  const isMobile = window.innerWidth <= 900; // Define el breakpoint para móvil
+
+  const buttonContent = (
+    <>
+      {icon && <span className={styles.icon}>{icon}</span>}
+      {label}
+    </>
+  );
+
+  const buttonWithDirection = (
+    <span style={{ display: 'inline-flex', flexDirection: isMobile ? 'column' : 'row', alignItems: 'center', justifyContent: 'center' }}>
+      {buttonContent}
+    </span>
+  );
+
   if (to?.startsWith('http')) {
     return (
       <a 
@@ -41,7 +58,7 @@ function Button({
         rel="noopener noreferrer" 
         {...props}
       >
-        {label}
+        {buttonWithDirection}
       </a>
     );
   }
@@ -54,7 +71,7 @@ function Button({
         style={buttonStyle}
         {...props}
       >
-        {label}
+        {buttonWithDirection}
       </Link>
     );
   }
@@ -66,7 +83,7 @@ function Button({
       onClick={onClick} 
       {...props}
     >
-      {label}
+      {buttonWithDirection}
     </button>
   );
 }

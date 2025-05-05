@@ -291,27 +291,4 @@
     gap: 1rem;
     text-align: center;
   }
-
-  .menu-item {
-    color: #808080;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem;
-    transition: all 0.3s ease;
-  }
-
-  .menu-icon {
-    font-size: 1.5rem;
-  }
-
-  .menu-item:hover {
-    color: #55d3c4;
-  }
-
-  .menu-item span {
-    font-size: 0.8rem;
-  }
 }
