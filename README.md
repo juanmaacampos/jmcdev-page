@@ -1,4 +1,4 @@
-# JMC Web Portfolio
+# JMCdev Webpage
 
 A modern and responsive web portfolio built with React, showcasing web development projects and services.
 
