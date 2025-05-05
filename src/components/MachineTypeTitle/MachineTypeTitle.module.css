@@ -1,0 +1,78 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 0.5rem; /* Reducido para menor separación con CoolTitle */
+  margin-top: 0;
+  width: 100%;
+}
+
+.title {
+  font-family: 'Geologica', sans-serif;
+  font-size: 5rem;
+  line-height: 1.1;
+  font-weight: 700;
+  background: linear-gradient(
+    45deg,
+    #fff 30%,
+    var(--machine-title-gradient, #55d3c4) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  letter-spacing: 0.01em;
+  text-align: left;
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.cursor {
+  display: inline-block;
+  width: 0.3ch;
+  height: 1em;
+  margin-left: 2px;
+  background: var(--machine-title-gradient, #55d3c4);
+  border-radius: 2px;
+  vertical-align: bottom;
+  animation: blink 1s steps(1) infinite;
+  position: relative;
+  top: 2px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 4rem;
+  }
+  .wrapper {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.8rem;
+    text-align: center;
+  }
+  .wrapper {
+    align-items: center;
+    margin-bottom: 0.8rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2.2rem;
+  }
+  .wrapper {
+    margin-bottom: 0.5rem;
+  }
+}

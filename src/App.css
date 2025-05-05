@@ -9,9 +9,9 @@ body {
   color: white;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
-  padding-top: 5rem; /* Espacio para la navbar */
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .contenido.visible {
@@ -19,6 +19,8 @@ body {
 }
 
 main {
-  min-height: 100vh;
   flex: 1;
+  width: 100%;
+  position: relative;
+  z-index: 1;
 }

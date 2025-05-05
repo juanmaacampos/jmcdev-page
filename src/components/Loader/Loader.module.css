@@ -35,9 +35,9 @@
 
 .stripe2 {
   background: linear-gradient(45deg,
-    rgba(19, 19, 19, 0.4) 0%,
-    rgba(26, 26, 26, 1) 50%,
-    rgba(19, 19, 19, 0.4) 100%
+    rgba(235, 85, 246, 0.2) 0%,
+    #EB55F6 50%,
+    rgba(235, 85, 246, 0.2) 100%
   );
   box-shadow: none;
   animation: sweepAnimation 2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
@@ -46,9 +46,9 @@
 
 .stripe3 {
   background: linear-gradient(45deg,
-    rgba(85, 211, 196, 0.2) 0%,
-    rgba(85, 211, 196, 1) 50%,
-    rgba(85, 211, 196, 0.2) 100%
+  rgba(19, 19, 19, 0.4) 0%,
+  rgba(26, 26, 26, 1) 50%,
+  rgba(19, 19, 19, 0.4) 100%
   );
   box-shadow: 0 0 25px rgba(85, 211, 196, 0.7),
               0 0 50px rgba(85, 211, 196, 0.5);

@@ -1,7 +1,8 @@
 import React from 'react';
 import Button from '../../components/Button/Button';
-import CoolTitle from '../../components/CoolTitle/CoolTitle';
+import MachineTypeTitle from '../../components/MachineTypeTitle/MachineTypeTitle';
 import styles from './Header.module.css';
+import CoolTitle from '../../components/CoolTitle/CoolTitle';
 
 function Header() {
   return (
@@ -9,11 +10,11 @@ function Header() {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.textContent}>
-            <CoolTitle>
-              Creamos experiencias<br />
-              digitales que<br />
-              <span>transforman</span>
-            </CoolTitle>
+            <CoolTitle>Creamos Experiencias Digitales que</CoolTitle>
+            <MachineTypeTitle
+              words={['conectan', 'sorprenden', 'venden', 'posicionan', 'atraen', 'destacan']}
+              color="#B687F7" // o "linear-gradient(45deg, #fff 30%, #B687F7 100%)"
+/>
             
             <p className={styles.description}>
               Desarrollamos sitios web únicos y poderosos que conectan 
@@ -29,7 +30,7 @@ function Header() {
               />
               <Button 
                 label="GitHub"
-                to="https://github.com/JMCodedev"
+                to="https://github.com/juanmaacampos"
                 color='#B687F7'
                 size="small"
                 variant='primary'

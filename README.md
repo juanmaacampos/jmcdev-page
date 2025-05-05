@@ -1,98 +1,182 @@
 # JMCdev Webpage
 
-A modern and responsive web portfolio built with React, showcasing web development projects and services.
+Este proyecto es una landing page moderna desarrollada en React. A continuación se describen todos los componentes principales, sus props y ejemplos de uso.
 
-## 🚀 Project Overview
+---
 
-This portfolio website is designed to showcase web development services and projects with a focus on creating transformative digital experiences.
+## Componentes
 
-## 🛠️ Tech Stack
+### 1. `Button`
 
-- React.js
-- CSS Modules
-- Vite
-- React Router DOM
+Botón reutilizable con variantes de color, tamaño y efectos.
 
-## Requirements
+**Props:**
+- `label` (string): Texto del botón.
+- `onClick` (func): Función al hacer click.
+- `to` (string): Ruta interna (`/ruta`) o externa (`https://...`).
+- `color` (string): Color principal (hex o CSS).
+- `effect` (string): `'normal' | 'neon' | 'primary'`.
+- `size` (string): `'small' | 'medium' | 'big'`.
+- `shape` (string): `'normal' | 'square'`.
+- `className` (string): Clases CSS adicionales.
+- `style` (object): Estilos en línea.
 
-- Node.js 16.x or higher
-- npm 7.x or higher
-
-## 🏗️ Project Structure
-
-```
-src/
-├── assets/
-│   └── images/
-├── components/
-│   ├── Button/
-│   └── CoolTitle/
-└── principalComponents/
-    └── Header/
+**Uso:**
+```jsx
+<Button label="Ver más" to="/proyectos" effect="neon" size="big" />
+<Button label="GitHub" to="https://github.com/juanmaacampos" color="#B687F7" />
 ```
 
-## 🧩 Components
+---
 
-### Principal Components
+### 2. `Card`
 
-#### Header
-The main hero section of the website featuring:
-- Custom animated title
-- Service description
-- Call-to-action buttons
-- Hero image
+Tarjeta informativa con imagen, título, subtítulo, contenido y acciones.
 
-### Reusable Components
+**Props:**
+- `title` (string)
+- `subtitle` (string)
+- `content` (ReactNode)
+- `image` ({ src, alt })
+- `actions` (array de ReactNode)
+- `variant` (string): `'default' | 'outlined' | 'elevated'`
+- `hoverable` (bool)
+- `className` (string)
+- `onClick` (func)
 
-#### Button
-A versatile button component with:
-- Multiple variants (primary/secondary)
-- Configurable sizes
-- Custom colors
-- Link functionality
-
-#### CoolTitle
-A stylized title component with:
-- Custom typography
-- Text highlighting capabilities
-- Responsive design
-
-## 🚦 Getting Started
-
-1. Clone the repository:
-```bash
-git clone https://github.com/JMCodedev/JMC-webpage.git
+**Uso:**
+```jsx
+<Card
+  title="Proyecto"
+  subtitle="Landing Page"
+  content="Descripción breve del proyecto."
+  image={{ src: "/img.png", alt: "Imagen" }}
+  actions={[<Button label="Ver" to="/proyecto" />]}
+/>
 ```
 
-2. Install dependencies:
-```bash
-cd JMC-webpage
-npm install
+---
+
+### 3. `CoolTitle`
+
+Título grande con gradiente.
+
+**Props:**
+- `children` (string | ReactNode)
+- `className` (string)
+
+**Uso:**
+```jsx
+<CoolTitle>Texto llamativo</CoolTitle>
 ```
 
-3. Create a .env file in the root directory (optional):
-```bash
-VITE_API_URL=your_api_url_here
+---
+
+### 4. `MachineTypeTitle`
+
+Título animado tipo máquina de escribir.
+
+**Props:**
+- `words` (array de string): Palabras a animar.
+- `typingSpeed` (number): ms por letra (default 90).
+- `deletingSpeed` (number): ms por letra (default 40).
+- `pause` (number): ms de pausa entre palabras (default 1200).
+- `className` (string)
+- `color` (string): Gradiente o color CSS.
+
+**Uso:**
+```jsx
+<MachineTypeTitle
+  words={['conectan', 'sorprenden']}
+  color="#B687F7"
+/>
 ```
 
-4. Start development server:
-```bash
-npm run dev
+---
+
+### 5. `IconLink`
+
+Enlace con ícono (usando react-icons).
+
+**Props:**
+- `icon` (React component): Ej. `FaGithub`
+- `to` (string): URL o ruta interna.
+- `label` (string): Accesibilidad.
+- `size` (string): `'small' | 'medium' | 'large'`
+- `effect` (string): `'fade' | 'scale'`
+- `color` (string): Color del ícono.
+- `className` (string)
+- `external` (bool): Si es enlace externo.
+
+**Uso:**
+```jsx
+<IconLink icon={FaGithub} to="https://github.com" label="GitHub" effect="scale" color="#181717" external />
 ```
 
-5. Build for production:```bashnpm run build```## 🎨 StylingThe project uses CSS Modules for scoped styling, ensuring component-level style isolation and maintainability.
-## 📱 Responsive Design
+---
 
-The website is fully responsive and optimized for:
-- Desktop
-- Tablet
-- Mobile devices
+### 6. `Logo`
 
-## 🔗 Links
+Logo de la marca.
 
-- GitHub: [JMCodedev](https://github.com/JMCodedev)
-- Live Demo: [Your live demo URL]
+**Props:**
+- `onClick` (func): Acción al clickear.
 
-## 📄 License
+**Uso:**
+```jsx
+<Logo onClick={() => window.scrollTo(0,0)} />
+```
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+---
+
+### 7. `LoaderDiagonal`
+
+Animación de carga diagonal.
+
+**Props:**
+- `isVisible` (bool): Si se muestra el loader.
+
+**Uso:**
+```jsx
+<LoaderDiagonal isVisible={loading} />
+```
+
+---
+
+### 8. `Section`
+
+Contenedor de sección con espaciado y ancho configurable.
+
+**Props:**
+- `children` (ReactNode)
+- `background` (string): Color o imagen de fondo.
+- `spacing` (string): `'small' | 'medium' | 'large'`
+- `width` (string): `'narrow' | 'default' | 'wide' | 'full'`
+- `className` (string)
+- `containerClassName` (string)
+- `id` (string)
+
+**Uso:**
+```jsx
+<Section spacing="large" width="wide" background="#222">
+  <h2>Sección</h2>
+</Section>
+```
+
+---
+
+## Estructura de carpetas
+
+- `src/components/`: Componentes reutilizables.
+- `src/principalComponents/`: Componentes principales de la página (Header, Navbar, Footer, etc).
+- `src/assets/images/`: Imágenes usadas.
+
+---
+
+## Notas
+
+- Todos los estilos usan CSS Modules.
+- Los íconos provienen de [react-icons](https://react-icons.github.io/react-icons/).
+- Navegación con `react-router-dom`.
+
+---

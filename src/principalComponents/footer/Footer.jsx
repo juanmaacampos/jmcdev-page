@@ -58,7 +58,6 @@ const Footer = () => {
                     to="https://juanmaacampos.github.io/juanmacampos-portfolio/"
                     label="Portfolio"
                     effect="scale"
-
                     external
                 />
             </div>
