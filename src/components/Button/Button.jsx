@@ -13,6 +13,7 @@ function Button({
   className = '',
   style = {},
   icon, // Nuevo prop para el icono
+  scrollTarget, // New prop for scroll target ID
   ...props
 }) {
   const buttonClasses = `
@@ -47,6 +48,32 @@ function Button({
       {buttonContent}
     </span>
   );
+
+  if (scrollTarget) {
+    const handleScroll = (e) => {
+      e.preventDefault();
+      const targetElement = document.getElementById(scrollTarget);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+      onClick && onClick(); // Also call any onClick handler passed
+    };
+
+    return (
+      <a
+        href={`#${scrollTarget}`}
+        className={buttonClasses}
+        style={buttonStyle}
+        onClick={handleScroll}
+        {...props}
+      >
+        {buttonWithDirection}
+      </a>
+    );
+  }
 
   if (to?.startsWith('http')) {
     return (

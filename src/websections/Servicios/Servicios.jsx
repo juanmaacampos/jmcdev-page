@@ -26,8 +26,8 @@ export default function Servicios() {
             descripcion="Sitios web modernos, rápidos y personalizados para tu negocio."
             modalData={{
               title: "Desarrollo Web",
-              subtitle: "Servicio destacado",
-              description: "Creamos sitios web modernos, rápidos y personalizados para tu negocio.",
+              subtitle: <Svg route="src/assets/images/modals_assets/world.json" />,
+              description: <Svg route="src/assets/images/modals_assets/world.json" />,
               image: { src: "src/assets/images/modals_assets/desarrollo_web.jpg", alt: "Desarrollo Web" },
               tabs: [
                 {
