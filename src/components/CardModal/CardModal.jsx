@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
+import { createPortal } from "react-dom";
 import styles from "./CardModal.module.css";
 import Button from "../Button/Button";
 import AOS from "aos";
@@ -34,7 +35,7 @@ export default function CardModal({
 
   if (!open) return null;
 
-  return (
+  return createPortal(
     <div className={styles.overlay} onClick={handleOverlayClick}>
       <div className={styles.darkModalCard}>
         <div 
@@ -84,6 +85,7 @@ export default function CardModal({
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

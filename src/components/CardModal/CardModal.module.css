@@ -1,12 +1,13 @@
 .overlay {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.85);
-  z-index: 1000;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 2rem;
+  overflow: hidden;
 }
 
 .modalCard {
@@ -23,27 +24,41 @@
 }
 
 .darkModalCard {
-  background: #18191a;
-  border-radius: 20px;
-  width: min(900px, 95vw);
-  max-height: 85vh;
-  box-shadow: 0 25px 50px -12px rgba(85, 211, 196, 0.25);
+  width: min(1200px, 95vw);
+  height: min(850px, 90vh);
   position: relative;
+  background: #18191a;
+  border-radius: 24px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(85, 211, 196, 0.25);
+  animation: modalEnter 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .modalHeader {
   position: relative;
-  width: 100%;
-  height: 280px;
+  height: 240px;
+  overflow: hidden;
+  border-radius: 22px 22px 0 0;
 }
 
 .coverImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: brightness(0.75);
 }
 
 .headerGradient {
@@ -51,43 +66,46 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(24, 25, 26, 0.7) 0%,
-    rgba(24, 25, 26, 0.9) 70%,
+    rgba(24, 25, 26, 0.0) 0%,
+    rgba(24, 25, 26, 0.7) 60%,
     #18191a 100%
   );
   display: flex;
   align-items: flex-end;
+  padding: 0 2rem 2rem 2rem;
 }
 
 .headerContent {
-  padding: 2rem;
-  color: white;
   width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
 }
 
 .closeBtn {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: rgba(24, 25, 26, 0.8);
+  width: 40px;
+  height: 40px;
   border: none;
-  font-size: 1.8rem;
+  background: rgba(24, 25, 26, 0.8);
   color: #fff;
-  width: 36px;
-  height: 36px;
+  font-size: 1.8rem;
   border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
   transition: all 0.2s;
   backdrop-filter: blur(8px);
-  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
 }
 
 .closeBtn:hover {
-  background: rgba(85, 211, 196, 0.2);
-  color: #55d3c4;
+  background: #55d3c4;
+  transform: scale(1.1);
 }
 
 .topImageSection {
@@ -152,25 +170,29 @@
   min-width: 0;
 }
 .subtitle {
-  color: #55d3c4;
-  font-size: 0.95rem;
-  font-weight: 600;
+  display: inline-block;
+  color: #a3ffe5;
+  font-size: 1.05rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
+  letter-spacing: 0.07em;
+  margin-bottom: 0.1em;
+  text-shadow: 0 1px 8px #55d3c444;
 }
 .title {
-  font-size: 2rem;
+  font-size: 2.4rem;
+  font-weight: 800;
   margin: 0;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  color: #fff;
+  text-shadow: 0 1px 12px #0008;
 }
 .description {
   color: #b7c2d2;
-  font-size: 1rem;
-  line-height: 1.5;
-  margin: 0;
+  font-size: 1.1rem;
+  margin: 0.4em 0 0 0;
+  line-height: 1.4;
+  text-shadow: 0 1px 2px #18191a88;
 }
 
 .bottomCard {
@@ -195,15 +217,17 @@
 }
 
 .modalContent {
+  flex: 1;
   display: flex;
-  padding: 1.5rem;
-  gap: 1.5rem;
+  gap: 2rem;
+  padding: 2rem;
+  overflow: hidden;
 }
 
 .tabsSection {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.8rem;
   min-width: 220px;
 }
 
@@ -251,12 +275,10 @@
 
 .tabContentSection {
   flex: 1;
-  background: #23272f;
+  background: rgba(35, 39, 47, 0.5);
   border-radius: 16px;
   padding: 1.5rem;
-  color: #fff;
-  border: 1px solid #2a2d36;
-  position: relative;
+  overflow: auto;
 }
 
 .contentFade {
@@ -305,6 +327,25 @@
   .tab, .activeTab {
     width: auto;
     white-space: nowrap;
+  }
+}
+@media (max-width: 768px) {
+  .modalContent {
+    flex-direction: column;
+  }
+  
+  .tabsSection {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  
+  .headerContent {
+    padding: 1.5rem;
+  }
+  
+  .modalHeader {
+    height: 200px;
   }
 }
 @media (max-width: 768px) {
