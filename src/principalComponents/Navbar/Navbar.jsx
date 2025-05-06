@@ -26,7 +26,7 @@ const Navbar = () => {
           <Button to="/" label="Inicio" effect="neon" size="small" icon={<FaHome />} />
           <Button to="/planes" label="Planes" effect="neon" size="small" icon={<FaClipboardList />} />
           <Button to="/nosotros" label="Nosotros" effect="neon" size="small" icon={<FaUser />} />
-          <Button to="/contacto" label="Contacto" effect="neon" size="small" icon={<FaEnvelope />} />
+          <Button to="/contacto" label="Contacto" effect="primary" size="small" icon={<FaEnvelope />} color='#663399' />
         </div>
 
         {/* Mobile menu button */}
@@ -41,7 +41,7 @@ const Navbar = () => {
           <Button to="/" label="Inicio" effect="neon" size="small" icon={<FaHome />} />
           <Button to="/planes" label="Planes" effect="neon" size="small" icon={<FaClipboardList />} />
           <Button to="/nosotros" label="Nosotros" effect="neon" size="small" icon={<FaUser />} />
-          <Button to="/contacto" label="Contacto" effect="neon" size="small" icon={<FaEnvelope />} />
+          <Button to="/contacto" label="Contacto" effect="primary" size="small" icon={<FaEnvelope />} color='#663399'/>
         </div>
       </div>
     </nav>

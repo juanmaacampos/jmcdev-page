@@ -140,16 +140,6 @@
   min-width: 120px;
 }
 
-.buttons > *:first-child {
-  background: #2de4c2;
-  color: #181818;
-}
-
-.buttons > *:last-child {
-  background: #b18cff;
-  color: #181818;
-}
-
 .buttons > *:hover {
   filter: brightness(0.95);
   box-shadow: 0 4px 24px 0 rgba(85,211,196,0.18);

@@ -58,23 +58,7 @@
 }
 
 .cta-button {
-  background-color: rgb(23, 45, 226);
-  color: white;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.cta-button:hover {
-  background-color: rgb(19, 37, 185);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(23, 45, 226, 0.3);
+  display: none;
 }
 
 .menu-button {

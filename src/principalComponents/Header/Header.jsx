@@ -13,14 +13,12 @@ function Header() {
           <div className={styles.textContent}>
             <CoolTitle>Creamos Experiencias Digitales que</CoolTitle>
             <MachineTypeTitle
-              words={['conectan', 'sorprenden', 'venden', 'posicionan', 'atraen', 'destacan']}
+              words={['conectan', 'sorprenden', 'venden', 'posicionan', 'trascienden', 'destacan', 'atraen']}
               color="#B687F7" // o "linear-gradient(45deg, #fff 30%, #B687F7 100%)"
             />
             
             <p className={styles.description}>
-              Desarrollamos sitios web únicos y poderosos que conectan 
-              con tu audiencia y potencian el crecimiento de tu negocio.
-            </p>
+            Diseñamos sitios web únicos que conectan con tu audiencia y hacen crecer tu negocio, combinando creatividad, tecnología y <strong>el mejor precio del mercado. </strong></p>
 
             <div className={styles.buttons}>
             <Button 
