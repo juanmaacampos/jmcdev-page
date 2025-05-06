@@ -83,6 +83,11 @@
   animation: fadeInTitle 0.8s ease-out;
 }
 
+.fontTransitioning {
+  /* Puedes agregar un pequeño efecto visual extra si quieres */
+  filter: brightness(1.2);
+}
+
 @keyframes glitchText {
   0% { transform: none; opacity: 1; }
   7% { transform: skew(-0.5deg, -0.9deg); opacity: 0.75; }

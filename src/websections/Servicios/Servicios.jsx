@@ -6,6 +6,7 @@ import CoolTitle from "../../components/CoolTitle/CoolTitle";
 import { FaLaptopCode, FaMobileAlt, FaRocket, FaServer, FaShare, FaPaintBrush, FaCode, FaTools, FaCogs } from "react-icons/fa";
 import ServicioCard from "../../components/ServicioCard/ServicioCard";
 import Svg from "../../components/Svg/Svg";
+import MachineTypeTitle from "../../components/MachineTypeTitle/MachineTypeTitle";
 
 export default function Servicios() {
   useEffect(() => {
@@ -17,7 +18,18 @@ export default function Servicios() {
 
   return (
     <section className={styles.serviciosSection} id="servicios">
-      <CoolTitle className={styles.titulo}>¿Qué ofrecemos?</CoolTitle>
+      <CoolTitle
+        className={styles.titulo}
+        hoverFonts={[
+          "'Orbitron', 'Geologica', sans-serif",
+          "'Rajdhani', 'DM Sans', sans-serif",
+          "'Exo', 'Arial Rounded MT Bold', sans-serif",
+          "'Share Tech Mono', 'Montserrat', monospace"
+        ]}
+        fontTransition="0.5s"
+      >
+Transformamos <CoolTitle>tu presencia digital</CoolTitle> 
+</CoolTitle>
       <div className={styles.serviciosGrid}>
         <div data-aos="fade-up" data-aos-delay="100" className={styles.cardWrapper}>
           <ServicioCard
@@ -140,7 +152,7 @@ export default function Servicios() {
           <ServicioCard
             icon={<Svg route="src/assets/images/modals_assets/hosting.json" />}
             titulo="Hosting y dominio"
-            descripcion="Gestión de alojamiento web y registro de dominios sin."
+            descripcion="Gestión de alojamiento web y registro de dominios facil y sin complicaciones."
             modalData={{
               title: "Hosting y Dominio",
               description: "Gestionamos todo el proceso de alojamiento y registro de dominio para tu sitio web.",

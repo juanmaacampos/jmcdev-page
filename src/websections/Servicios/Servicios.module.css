@@ -1,7 +1,7 @@
 .serviciosSection {
   background: #18191a;
   color: #fff; /* Asegura texto blanco en la sección */
-  padding: 4rem 0;
+  padding: 2rem 0 4rem 0;
   text-align: center;
 }
 
@@ -13,7 +13,10 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem; /* Ajusta según lo que prefieras */
-  padding: 3rem; /* Elimina padding lateral */
+  padding-top: 0%;
+  padding-bottom: 3rem ;
+  padding-left: 3rem ;
+  padding-right: 3rem;
   justify-items: stretch; /* Las tarjetas ocupan todo el ancho de la celda */
 }
 
