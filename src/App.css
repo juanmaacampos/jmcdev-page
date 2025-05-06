@@ -33,3 +33,30 @@ main {
   position: relative;
   z-index: 1;
 }
+
+/* Barra scroll estilo general */
+
+/* Estilos personalizados para el scrollbar */
+body::-webkit-scrollbar {
+  width: 120px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #0f0f0f; /* Fondo del track */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #663399; /* Color de tu marca */
+  border-radius: 10px;
+  border: 2px solid #0f0f0f;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #7e4ccf;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #663399 #0f0f0f;
+}

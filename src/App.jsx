@@ -12,7 +12,6 @@ import Portafolio from "./websections/Portafolio/Portafolio";
 import Testimonios from "./websections/Testimonios/Testimonios";
 import Contacto from "./websections/Contacto/Contacto";
 
-
 function App() {
   const [loading, setLoading] = useState(true);
   const [contentVisible, setContentVisible] = useState(false);
@@ -26,11 +25,10 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-
-
   return (
     <>
       <LoaderDiagonal isVisible={loading} />
+
       <div className={`contenido ${contentVisible ? 'visible' : ''}`}>
         <Navbar />
         <main>
@@ -49,4 +47,3 @@ function App() {
 }
 
 export default App;
-

@@ -26,8 +26,7 @@ export default function Servicios() {
             descripcion="Sitios web modernos, rápidos y personalizados para tu negocio."
             modalData={{
               title: "Desarrollo Web",
-              subtitle: <Svg route="src/assets/images/modals_assets/world.json" />,
-              description: <Svg route="src/assets/images/modals_assets/world.json" />,
+              description: "Creamos sitios web modernos, rápidos y personalizados para tu negocio.",
               image: { src: "src/assets/images/modals_assets/desarrollo_web.jpg", alt: "Desarrollo Web" },
               tabs: [
                 {
@@ -70,8 +69,7 @@ export default function Servicios() {
             descripcion="Tu página se verá perfecta en cualquier dispositivo, ya sea PC o celular."
             modalData={{
               title: "Diseño Responsivo",
-              subtitle: "Adaptabilidad Total",
-              description: "Desarrollamos tu sitio web para que funcione perfectamente en cualquier dispositivo y tamaño de pantalla.",
+              description: "Tu página se verá perfecta en cualquier dispositivo, ya sea PC o celular.",
               image: { src: "src/assets/images/modals_assets/responsive.jpg", alt: "Diseño Responsivo" },
               tabs: [
                 {
@@ -108,8 +106,7 @@ export default function Servicios() {
             descripcion="Actualizaciones regulares, corrección de errores y soporte continuo."
             modalData={{
               title: "Mantenimiento y Soporte",
-              subtitle: "Servicio Continuo",
-              description: "Mantenemos tu sitio actualizado, seguro y funcionando perfectamente.",
+              description: "Mantenemos tu sitio actualizado y funcionando perfectamente.",
               image: { src: "src/assets/images/modals_assets/mantenimiento.png", alt: "Soporte Técnico" },
               tabs: [
                 {
@@ -143,10 +140,9 @@ export default function Servicios() {
           <ServicioCard
             icon={<Svg route="src/assets/images/modals_assets/hosting.json" />}
             titulo="Hosting y dominio"
-            descripcion="Gestión de alojamiento web y registro de dominios sin complicaciones."
+            descripcion="Gestión de alojamiento web y registro de dominios sin."
             modalData={{
               title: "Hosting y Dominio",
-              subtitle: "Infraestructura Web",
               description: "Gestionamos todo el proceso de alojamiento y registro de dominio para tu sitio web.",
               image: { src: "src/assets/images/modals_assets/hosting.webp", alt: "Hosting" },
               tabs: [
@@ -184,7 +180,6 @@ export default function Servicios() {
             descripcion="Conexión automática con plataformas sociales integradas en tiempo real en la web."
             modalData={{
               title: "Integración Social",
-              subtitle: "Conectividad Total",
               description: "Integra tus redes sociales de forma profesional en tu sitio web.",
               image: { src: "src/assets/images/modals_assets/redes.webp", alt: "Redes Sociales" },
               tabs: [
@@ -222,7 +217,6 @@ export default function Servicios() {
             descripcion="Interfaces únicas y optimizadas para la experiencia del usuario completamente hechas desde cero, sin plantillas."
             modalData={{
               title: "Diseño UX/UI",
-              subtitle: "Experiencia Única",
               description: "Diseñamos interfaces intuitivas y atractivas pensando en tus usuarios.",
               image: { src: "src/assets/images/modals_assets/diseño.jpg", alt: "Diseño UX/UI" },
               tabs: [
