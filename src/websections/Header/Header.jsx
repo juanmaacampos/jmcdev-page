@@ -4,6 +4,7 @@ import MachineTypeTitle from '../../components/MachineTypeTitle/MachineTypeTitle
 import styles from './Header.module.css';
 import CoolTitle from '../../components/CoolTitle/CoolTitle';
 import { FaEye, FaGithub, FaLaptop, FaListAlt } from 'react-icons/fa';
+import ResponsiveAnimation from '../../components/ResponsiveAnimation/ResponsiveAnimation';
 
 function Header() {
   return (

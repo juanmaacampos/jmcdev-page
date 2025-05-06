@@ -94,7 +94,21 @@ Título animado tipo máquina de escribir.
 
 ---
 
-### 5. `IconLink`
+### 5. `ResponsiveAnimation`
+
+Animación Lottie adaptable.
+
+**Props:**
+- `animationDataPath` (string): Ruta al archivo JSON de la animación.
+
+**Uso:**
+```jsx
+<ResponsiveAnimation animationDataPath="/src/assets/animated/responsive_ani.json" />
+```
+
+---
+
+### 6. `IconLink`
 
 Enlace con ícono (usando react-icons).
 
@@ -115,7 +129,7 @@ Enlace con ícono (usando react-icons).
 
 ---
 
-### 6. `Logo`
+### 7. `Logo`
 
 Logo de la marca.
 
@@ -129,7 +143,7 @@ Logo de la marca.
 
 ---
 
-### 7. `LoaderDiagonal`
+### 8. `LoaderDiagonal`
 
 Animación de carga diagonal.
 
@@ -143,7 +157,7 @@ Animación de carga diagonal.
 
 ---
 
-### 8. `Section`
+### 9. `Section`
 
 Contenedor de sección con espaciado y ancho configurable.
 
