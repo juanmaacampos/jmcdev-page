@@ -4,7 +4,6 @@ import MachineTypeTitle from '../../components/MachineTypeTitle/MachineTypeTitle
 import styles from './Header.module.css';
 import CoolTitle from '../../components/CoolTitle/CoolTitle';
 import { FaEye, FaGithub, FaLaptop, FaListAlt } from 'react-icons/fa';
-import ResponsiveAnimation from '../../components/ResponsiveAnimation/ResponsiveAnimation';
 
 function Header() {
   return (
@@ -21,23 +20,6 @@ function Header() {
             <p className={styles.description}>
             Diseñamos sitios web únicos que conectan con tu audiencia y hacen crecer tu negocio, combinando creatividad, tecnología y <strong>el mejor precio del mercado. </strong></p>
 
-            <div className={styles.buttons}>
-            <Button 
-            label="Planes" 
-            to="/planes" 
-            effect="neon"
-            size="medium"
-            icon={<FaListAlt />}
-          />
-         <Button 
-            label="Github" 
-            to="https://github.com/juanmaacampos" 
-            effect="neon"
-            size="medium"
-            color='#663399'
-            icon={<FaGithub />}
-          />
-            </div>
           </div>
           
           <div className={styles.imageWrapper}>

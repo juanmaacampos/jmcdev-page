@@ -1,0 +1,30 @@
+.serviciosSection {
+  background: #18191a;
+  color: #fff; /* Asegura texto blanco en la sección */
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.titulo {
+  margin-bottom: 2.5rem;
+}
+
+.serviciosGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem; /* Ajusta según lo que prefieras */
+  padding: 3rem; /* Elimina padding lateral */
+  justify-items: stretch; /* Las tarjetas ocupan todo el ancho de la celda */
+}
+
+@media (max-width: 1024px) {
+  .serviciosGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .serviciosGrid {
+    grid-template-columns: 1fr;
+  }
+}

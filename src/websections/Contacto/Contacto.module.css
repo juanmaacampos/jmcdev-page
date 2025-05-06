@@ -1,0 +1,65 @@
+.contactoSection {
+  padding: 4rem 0 3rem 0;
+  background: #18191a;
+  text-align: center;
+}
+
+.titulo {
+  margin-bottom: 2.5rem;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.formulario {
+  background: #232425;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 4px 24px #0004;
+}
+
+.formulario input,
+.formulario textarea {
+  border: none;
+  border-radius: 8px;
+  padding: 0.8rem;
+  font-size: 1rem;
+  background: #18191a;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  resize: none;
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+  outline: 2px solid #55d3c4;
+}
+
+.info {
+  background: #222;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  width: 260px;
+  color: #fff;
+  box-shadow: 0 4px 24px #0004;
+  text-align: left;
+}
+
+.info h4 {
+  color: #A3FFE5;
+  margin-bottom: 1rem;
+}
+
+.info a {
+  color: #55d3c4;
+  text-decoration: none;
+}

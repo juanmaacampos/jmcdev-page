@@ -35,3 +35,116 @@
     font-size: 2.2rem;
   }
 }
+
+/* Animaciones */
+.glitch {
+  position: relative;
+  animation: glitchText 3s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #fff 30%, rgba(85, 211, 196, 0.8) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.neon {
+  text-shadow: 0 0 10px #55d3c4,
+               0 0 20px #55d3c4,
+               0 0 30px #55d3c4;
+  animation: neonPulse 2s ease-in-out infinite alternate;
+}
+
+.slide {
+  animation: slideInTitle 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end);
+  border-right: .15em solid #55d3c4;
+}
+
+.bounce {
+  animation: bounceTitle 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center bottom;
+}
+
+.fade {
+  animation: fadeInTitle 0.8s ease-out;
+}
+
+@keyframes glitchText {
+  0% { transform: none; opacity: 1; }
+  7% { transform: skew(-0.5deg, -0.9deg); opacity: 0.75; }
+  10% { transform: none; opacity: 1; }
+  27% { transform: none; opacity: 1; }
+  30% { transform: skew(0.8deg, -0.1deg); opacity: 0.75; }
+  35% { transform: none; opacity: 1; }
+}
+
+@keyframes neonPulse {
+  from {
+    text-shadow: 0 0 10px #55d3c4,
+                 0 0 20px #55d3c4,
+                 0 0 30px #55d3c4;
+  }
+  to {
+    text-shadow: 0 0 15px #55d3c4,
+                 0 0 25px #55d3c4,
+                 0 0 35px #55d3c4;
+  }
+}
+
+@keyframes slideInTitle {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes bounceTitle {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% { 
+    transform: scale(0.9); 
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInTitle {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

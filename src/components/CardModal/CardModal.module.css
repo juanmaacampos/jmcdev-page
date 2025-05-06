@@ -1,0 +1,370 @@
+.overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modalCard {
+  background: transparent;
+  border-radius: 20px;
+  max-width: 900px;
+  width: 95vw;
+  max-height: 95vh;
+  box-shadow: 0 8px 32px #0008;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.darkModalCard {
+  background: #18191a;
+  border-radius: 20px;
+  width: min(900px, 95vw);
+  max-height: 85vh;
+  box-shadow: 0 25px 50px -12px rgba(85, 211, 196, 0.25);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modalHeader {
+  position: relative;
+  width: 100%;
+  height: 280px;
+}
+
+.coverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.headerGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(24, 25, 26, 0.7) 0%,
+    rgba(24, 25, 26, 0.9) 70%,
+    #18191a 100%
+  );
+  display: flex;
+  align-items: flex-end;
+}
+
+.headerContent {
+  padding: 2rem;
+  color: white;
+  width: 100%;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(24, 25, 26, 0.8);
+  border: none;
+  font-size: 1.8rem;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  backdrop-filter: blur(8px);
+  z-index: 2;
+}
+
+.closeBtn:hover {
+  background: rgba(85, 211, 196, 0.2);
+  color: #55d3c4;
+}
+
+.topImageSection {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+  background: #eee;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.bgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.85);
+}
+
+.headerCard {
+  position: absolute;
+  top: 24px;
+  left: 32px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #0002;
+  padding: 1.2rem 2rem 1.2rem 1.5rem;
+  min-width: 320px;
+  max-width: 70%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.headerDark {
+  display: flex;
+  padding: 2.5rem 3rem;
+  gap: 2.5rem;
+  background: #23272f;
+  align-items: center;
+}
+.headerImageWrapper {
+  flex-shrink: 0;
+  width: 180px;
+  height: 180px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #18191a;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+}
+.headerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.headerText {
+  flex: 1;
+  min-width: 0;
+}
+.subtitle {
+  color: #55d3c4;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+.title {
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+.description {
+  color: #b7c2d2;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.bottomCard {
+  background: #fff;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 24px #0001;
+  margin-top: -32px;
+  padding: 2.5rem 2rem 2rem 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  min-height: 260px;
+  z-index: 1;
+}
+
+.bottomDarkCard {
+  flex: 1;
+  display: flex;
+  gap: 2rem;
+  padding: 2.5rem 3rem;
+  overflow: hidden;
+}
+
+.modalContent {
+  display: flex;
+  padding: 1.5rem;
+  gap: 1.5rem;
+}
+
+.tabsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 220px;
+}
+
+.tabWithIcon {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.tab, .activeTab {
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #fff;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  transform: translateX(0);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tabButton {
+  text-align: left !important;
+  justify-content: flex-start !important;
+  transform: translateX(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.tabSlideIn {
+  transform: translateX(8px);
+}
+
+.tabIcon {
+  font-size: 1.2em;
+  opacity: 0.9;
+  transition: transform 0.3s ease;
+}
+
+.activeTab .tabIcon {
+  transform: scale(1.2);
+}
+
+.tabContentSection {
+  flex: 1;
+  background: #23272f;
+  border-radius: 16px;
+  padding: 1.5rem;
+  color: #fff;
+  border: 1px solid #2a2d36;
+  position: relative;
+}
+
+.contentFade {
+  animation: fadeSlide 0.3s ease forwards;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 1100px) {
+  .darkModalCard { max-width: 99vw; }
+  .headerDark { padding: 1.2rem 1rem 0.7rem 1rem; gap: 1.2rem; }
+  .bottomDarkCard { flex-direction: column; gap: 1.5rem; padding: 1.2rem 1rem 1.2rem 1rem; }
+  .tabsSection { flex-direction: row; min-width: 0; gap: 0.5rem; }
+  .tab, .activeTab { justify-content: center; }
+  .tabContentSection { padding: 1.2rem 0.7rem; }
+  .headerImageWrapper { width: 80px; height: 80px; }
+}
+@media (max-width: 1024px) {
+  .headerDark {
+    padding: 2rem;
+    gap: 2rem;
+  }
+  .headerImageWrapper {
+    width: 140px;
+    height: 140px;
+  }
+  .bottomDarkCard {
+    padding: 2rem;
+    flex-direction: column;
+  }
+  .tabsSection {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+  }
+  .tab, .activeTab {
+    width: auto;
+    white-space: nowrap;
+  }
+}
+@media (max-width: 768px) {
+  .modalContent {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .tabsSection {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    min-width: 0;
+  }
+  
+  .tab, .activeTab {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  
+  .modalHeader {
+    height: 220px;
+  }
+  
+  .headerContent {
+    padding: 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .modalCard { max-width: 99vw; }
+  .topImageSection { height: 120px; }
+  .headerCard { min-width: 0; padding: 0.7rem 1rem; }
+  .title { font-size: 1.2rem; }
+  .bottomCard { padding: 1rem 0.3rem 0.7rem 0.3rem; }
+  .darkModalCard { max-width: 99vw; }
+  .headerDark { padding: 0.7rem 0.7rem 0.5rem 0.7rem; gap: 0.7rem; }
+  .bottomDarkCard { padding: 0.7rem 0.3rem 0.7rem 0.3rem; }
+  .headerImageWrapper { width: 48px; height: 48px; }
+}
+@media (max-width: 640px) {
+  .headerDark {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  .headerImageWrapper {
+    width: 100px;
+    height: 100px;
+    border-radius: 16px;
+  }
+  .title {
+    font-size: 1.8rem;
+  }
+  .bottomDarkCard {
+    padding: 1.5rem;
+  }
+  .tabContentSection {
+    padding: 1.5rem;
+  }
+}

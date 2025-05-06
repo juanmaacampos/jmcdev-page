@@ -1,0 +1,59 @@
+.servicioCard {
+  background: #222;
+  border-radius: 18px;
+  padding: 2rem 1.5rem;
+  width: 100%; /* Ocupar todo el ancho de la celda del grid */
+  box-sizing: border-box;
+  box-shadow: 0 4px 24px #0004;
+  color: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.servicioCard:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px #55d3c466;
+}
+
+.icon {
+  font-size: 2.5rem;
+  color: #55d3c4;
+  margin-bottom: 1rem;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.icon svg, .icon > div {
+  width: 100%;
+  height: 100%;
+  max-width: 80px;
+  max-height: 80px;
+  display: block;
+}
+
+.servicioCard h3 {
+  margin-bottom: 0.7rem;
+  font-size: 1.3rem;
+  color: #A3FFE5;
+}
+
+.servicioCard p {
+  color: #ccc;
+  font-size: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .servicioCard {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .servicioCard {
+    padding: 1rem 0.5rem;
+  }
+}

@@ -1,0 +1,16 @@
+.portafolioSection {
+  padding: 4rem 0 3rem 0;
+  background: #151617;
+  text-align: center;
+}
+
+.titulo {
+  margin-bottom: 2.5rem;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,36 @@
+.testimoniosSection {
+  padding: 4rem 0 3rem 0;
+  background: #18191a;
+  text-align: center;
+}
+
+.titulo {
+  margin-bottom: 2.5rem;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.testimonioCard {
+  background: #232425;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  width: 320px;
+  color: #fff;
+  box-shadow: 0 4px 24px #0004;
+}
+
+.texto {
+  font-size: 1.1rem;
+  color: #A3FFE5;
+  margin-bottom: 1rem;
+}
+
+.nombre {
+  color: #ccc;
+  font-size: 1rem;
+}

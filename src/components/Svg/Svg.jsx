@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Lottie from 'react-lottie';
 
-const ResponsiveAnimation = ({ route }) => {
+const Svg = ({ route }) => {
   const [animationData, setAnimationData] = useState(null);
 
   useEffect(() => {
@@ -42,4 +42,4 @@ const ResponsiveAnimation = ({ route }) => {
   );
 };
 
-export default ResponsiveAnimation;
+export default Svg;

@@ -1,0 +1,30 @@
+.procesoSection {
+  padding: 4rem 0 3rem 0;
+  background: #151617;
+  text-align: center;
+}
+
+.titulo {
+  margin-bottom: 2.5rem;
+}
+
+.pasosGrid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.pasoCard {
+  background: #222;
+  border-radius: 16px;
+  padding: 1.5rem 1.2rem;
+  width: 220px;
+  color: #fff;
+  box-shadow: 0 4px 24px #0004;
+}
+
+h4 {
+  color: #A3FFE5;
+  margin-bottom: 0.5rem;
+}

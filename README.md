@@ -94,16 +94,16 @@ Título animado tipo máquina de escribir.
 
 ---
 
-### 5. `ResponsiveAnimation`
+### 5. `Svg`
 
-Animación Lottie adaptable.
+Animación SVG Lottie adaptable.
 
 **Props:**
-- `animationDataPath` (string): Ruta al archivo JSON de la animación.
+- `route` (string): Ruta al archivo JSON de la animación.
 
 **Uso:**
 ```jsx
-<ResponsiveAnimation animationDataPath="/src/assets/animated/responsive_ani.json" />
+<Svg animationDataPath="/src/assets/animated/responsive_ani.json" />
 ```
 
 ---
