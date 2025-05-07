@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import { createPortal } from "react-dom";
 import styles from "./CardModal.module.css";
 import Button from "../Button/Button";
+import CoolTitle from "../CoolTitle/CoolTitle";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -47,7 +48,13 @@ export default function CardModal({
           <div className={styles.headerGradient}>
             <div className={styles.headerContent}>
               <div className={styles.subtitle}>{subtitle}</div>
-              <h2 className={styles.title}>{title}</h2>
+              <CoolTitle
+                className={styles.title}
+                animation="slide"
+                fontTransition="0.4s"
+              >
+                {title}
+              </CoolTitle>
               <p className={styles.description}>{description}</p>
             </div>
           </div>
