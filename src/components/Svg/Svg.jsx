@@ -30,12 +30,27 @@ const Svg = ({ route }) => {
   };
 
   return (
-    <div style={{ width: '48px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <div style={{ 
+      width: '64px', 
+      height: '64px', 
+      display: 'flex', 
+      alignItems: 'center', 
+      justifyContent: 'center',
+      overflow: 'hidden',
+      margin: '0 auto 1rem auto' // Mantiene el centrado y el espaciado
+    }}>
       {animationData && (
         <Lottie
           options={defaultOptions}
-          height={100}
-          width={100}
+          height={72} // Ligeramente más grande que el contenedor para mejor visualización
+          width={72}
+          style={{
+            maxWidth: '120%', // Permite que la animación sea un poco más grande que el contenedor
+            maxHeight: '120%',
+            margin: 0,
+            padding: 0,
+            transform: 'scale(1.1)' // Efecto de zoom suave
+          }}
         />
       )}
     </div>

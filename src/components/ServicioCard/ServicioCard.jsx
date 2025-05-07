@@ -1,19 +1,32 @@
 import React, { useState } from "react";
 import styles from "./ServicioCard.module.css";
 import CoolTitle from "../CoolTitle/CoolTitle";
+import { generateSchemaMarkup } from '../../utils/seo';
 
 export default function ServicioCard({ icon, svg, titulo, descripcion, modalData }) {
   const [flipped, setFlipped] = useState(false);
 
+  const serviceSchema = generateSchemaMarkup('Service', {
+    name: titulo,
+    description: descripcion,
+    provider: {
+      "@type": "Organization",
+      "name": "JMCdev"
+    }
+  });
+
   return (
-    <div
+    <article 
       className={`${styles.servicioCard} ${flipped ? styles.flipped : ""}`}
       tabIndex={0}
       role="button"
       style={{ cursor: "pointer" }}
       onClick={() => setFlipped(f => !f)}
       onBlur={() => setFlipped(false)}
+      itemScope 
+      itemType="https://schema.org/Service"
     >
+      <script type="application/ld+json">{serviceSchema}</script>
       <div className={styles.cardInner}>
         {/* Frente */}
         <div className={styles.cardFront}>
@@ -73,6 +86,6 @@ export default function ServicioCard({ icon, svg, titulo, descripcion, modalData
           </button>
         </div>
       </div>
-    </div>
+    </article>
   );
 }

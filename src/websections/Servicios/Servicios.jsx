@@ -109,254 +109,183 @@ Transformamos <CoolTitle>tu presencia digital</CoolTitle>
 
       <div className={styles.serviciosGrid}>
 
-      {/*  -----------------------DESARROLLO WEB CARD------------------------------------*/}
+    {/*  -----------------------DESARROLLO WEB CARD------------------------------------*/}
 
-        <div data-aos="fade-up" data-aos-delay="100" className={styles.cardWrapper}>
-          <ServicioCard
-            icon={<Svg route="src/assets/images/modals_assets/world.json" />}
-            titulo="Creación de paginas web atractivas"
-            descripcion="Creamos sitios web modernos a medida para tu negocio, optimizados para aparecer primero en las busquedas de Google."
-            modalData={{
-              title: "Creada para llamar algo mas que la atención",
-              description: "Desde el principio, tu tienes el control de como quieres tu pagina",
-              image: { src: "src/assets/images/modals_assets/desarrollo_web.jpg", alt: "Desarrollo Web" },
-              tabs: [
-                {
-                  label: "¿Qué incluye?",
-                  content: (
-                    <ul>
-                      <li>Landing pages</li>
-                      <li>Webs institucionales</li>
-                      <li>Tiendas online</li>
-                    </ul>
-                  ),
-                },
-                {
-                  label: "Tecnologías",
-                  content: (
-                    <div>
-                      <p>React, Next.js, Node.js, CSS Modules, y más.</p>
-                    </div>
-                  ),
-                },
-                {
-                  label: "Proceso",
-                  content: (
-                    <ol>
-                      <li>Reunión inicial</li>
-                      <li>Prototipado</li>
-                      <li>Desarrollo</li>
-                      <li>Entrega y soporte</li>
-                    </ol>
-                  ),
-                },
-              ],
-            }}
-          />
-        </div>
+<div data-aos="fade-up" data-aos-delay="100" className={styles.cardWrapper}>
+  <ServicioCard
+    icon={<Svg route="src/assets/images/modals_assets/world.json" />}
+    titulo="Creación de páginas web que venden"
+    descripcion="Diseñamos sitios modernos desde cero, optimizados para destacar en Google y convertir visitas en clientes."
+    modalData={{
+      title: <h1>Estar en Google es vender.</h1>,
+      description: "Tenés una marca, querés crecer. Necesitás una web que aparezca entre los primeros resultados cuando te buscan.",
+      image: { src: "src/assets/images/modals_assets/desarrollo_web.png", alt: "Desarrollo Web" },
+      tabs: [
+        {
+          label: "",
+          icon: <FaShare />,
+          content: (
+            <ul>
+              <li><h3>Posicionate entre los primeros resultados</h3></li>
+              <p>Diseñamos cada línea de código pensando en el buscador de Google, para que tu negocio no solo esté online… esté visible.</p>
+              <li><h4>¿Por qué importa esto?</h4></li>
+              <p>Porque cuando alguien busca un restaurante, peluquería o cualquier servicio, no entra a redes. Lo busca en Google.  
+              Si no estás ahí arriba, no existís.</p>
+            </ul>
+          ),
+        }
+      ],
+    }}
+  />
+</div>
 
-      {/*  -----------------------REDES SOCIALES CARD------------------------------------*/}
+{/*  -----------------------REDES SOCIALES CARD------------------------------------*/}
+
+<div data-aos="fade-up" data-aos-delay="500" className={styles.cardWrapper}>
+  <ServicioCard
+    icon={<Svg route="/src/assets/images/modals_assets/social.json" />}
+    titulo="Potenciación de Redes Sociales"
+    descripcion="Impulsamos tu negocio en redes con contenido atractivo, diseño de publicaciones y estrategias para llegar a más público."
+    modalData={{
+      title: "Conectá tu negocio con más gente",
+      description: "Haz que tu marca brille en redes sociales con contenido profesional y estrategias que aumentan tu alcance.",
+      image: { src: "src/assets/images/modals_assets/redes.webp", alt: "Redes Sociales" },
+      tabs: [
+        {
+          label: "",
+          icon: <FaShare />,
+          content: (
+            <ul>
+              <li><h3>Contenido que conecta</h3></li>
+              <p>Creamos publicaciones que no solo destacan, sino que generan interacción. Contenido que engancha y convierte.</p>
+              <li><h4>¿Por qué es tan importante?</h4></li>
+              <p>Las redes sociales son el escenario perfecto para mostrar tu negocio al mundo. Pero <strong>necesitás estrategias bien pensadas </strong> para que tu marca llegue a más personas y se convierta en una referencia.</p>
+            </ul>
+          ),
+        }
+      ],
+    }}
+  />
+</div>
+
+{/*  -----------------------FOTOGRAFÍA CARD------------------------------------*/}
+
+<div data-aos="fade-up" data-aos-delay="200" className={styles.cardWrapper}>
+  <ServicioCard
+    icon={<Svg route="src/assets/images/modals_assets/camera.json" />}
+    titulo="Servicio de Fotografía Profesional"
+    descripcion="Capturamos imágenes impresionantes con cámara réflex para que tu negocio tenga fotos visualmente impactantes en tu web y redes sociales."
+    modalData={{
+      title: "Imágenes que hablan por tu marca",
+      description: "Fotos de alta calidad que reflejan la esencia de tu negocio, ideales para tu página web y redes sociales.",
+      image: { src: "src/assets/images/modals_assets/camera.png", alt: "Fotografía Profesional" },
+      tabs: [
+        {
+          label: "",
+          icon: <FaShare />,
+          content: (
+            <ul>
+              <li><h3>Imágenes que impactan</h3></li>
+              <p>Tomamos fotos profesionales con cámara réflex para que tu negocio tenga un impacto visual inmediato. Imágenes que captan atención y dejan huella.</p>
+              <li><h4>¿Por qué es importante?</h4></li>
+              <p>Las imágenes son la primera impresión de tu marca. <strong>No subestimes el poder de una buena foto</strong>. Una imagen vale más que mil palabras, y en tu negocio, <strong>puede ser la diferencia entre llamar la atención o pasar desapercibido</strong>.</p>
+            </ul>
+          ),
+        }
+      ],
+    }}
+  />
+</div>
 
 
-            <div data-aos="fade-up" data-aos-delay="500" className={styles.cardWrapper}>
-          <ServicioCard
-            icon={<Svg route="/src/assets/images/modals_assets/social.json" />}
-            titulo="Potenciación de Redes Sociales"
-            descripcion="Impulsamos tu negocio en redes con contenido llamativo, diseño de publicaciones y estrategias de para llegar a mas publico"
-            modalData={{
-              title: "Integración Social",
-              description: "Integra tus redes sociales de forma profesional en tu sitio web.",
-              image: { src: "src/assets/images/modals_assets/redes.webp", alt: "Redes Sociales" },
-              tabs: [
-                {
-                  label: "Integraciones",
-                  icon: <FaShare />,
-                  content: (
-                    <ul>
-                      <li>Feed de Instagram</li>
-                      <li>Timeline de Twitter</li>
-                      <li>Posts de Facebook</li>
-                      <li>Videos de YouTube</li>
-                    </ul>
-                  ),
-                },
-                {
-                  label: "Funcionalidades",
-                  icon: <FaCogs />,
-                  content: (
-                    <ul>
-                      <li>Compartir automático</li>
-                      <li>Botones sociales</li>
-                      <li>Analytics integrado</li>
-                    </ul>
-                  ),
-                }
-              ],
-            }}
-          />
-        </div>
+{/* -------------------------DISEÑO CARD----------------------------------*/}
 
-      {/*  -----------------------FOTOGRAFIA CARD------------------------------------*/}
+<div data-aos="fade-up" data-aos-delay="600" className={styles.cardWrapper}>
+  <ServicioCard
+    icon={<Svg route="src/assets/images/modals_assets/design.json" />}
+    titulo="Diseños Personalizados desde Cero"
+    descripcion="Creamos interfaces únicas, adaptadas a tus necesidades. Nada de plantillas, todo hecho a medida y para que se vea bien en cualquier dispositivo."
+    modalData={{
+      title: "Diseño que conecta con tu público",
+      description: "Diseñamos interfaces atractivas y fáciles de usar, pensadas para que tus usuarios disfruten de una experiencia simple y agradable.",
+      image: { src: "src/assets/images/modals_assets/diseño.jpg", alt: "Diseño Personalizado" },
+      tabs: [
+        {
+          label: "",
+          icon: <FaShare />,
+          content: (
+            <ul>
+              <li><h3>Diseños únicos y adaptados a tu marca</h3></li>
+              <p>Olvidate de usar plantillas. Creamos cada web desde cero, ajustado a lo que tu negocio necesita.</p>
+              <li><h4>¿Por qué elegirnos?</h4></li>
+              <p>Un diseño atractivo y fácil de usar hace que tus usuarios disfruten más tu página. Nos aseguramos de que todo se vea perfecto, tanto en computadoras como en teléfonos.</p>
+            </ul>
+          ),
+        }
+      ],
+    }}
+  />
+</div>
 
-            <div data-aos="fade-up" data-aos-delay="200" className={styles.cardWrapper}>
-          <ServicioCard
-            icon={<Svg route="src/assets/images/modals_assets/camera.json" />}
-            titulo="Servicio de fotografia profesional"
-            descripcion="Fotos profesionales tomadas con camara reflex para usar imagenes visualmente llamativas en tu pagina y redes sociales"
-            modalData={{
-              title: "Diseño Responsivo",
-              description: "Tu página se verá perfecta en cualquier dispositivo, ya sea PC o celular.",
-              image: { src: "src/assets/images/modals_assets/responsive.jpg", alt: "Diseño Responsivo" },
-              tabs: [
-                {
-                  label: "Características",
-                  icon: <FaMobileAlt />,
-                  content: (
-                    <ul>
-                      <li>Diseño adaptable automático</li>
-                      <li>Optimización para móviles</li>
-                      <li>Pruebas en múltiples dispositivos</li>
-                      <li>Performance optimizada</li>
-                    </ul>
-                  ),
-                },
-                {
-                  label: "Tecnologías",
-                  icon: <FaCode />,
-                  content: (
-                    <ul>
-                      <li>CSS Grid y Flexbox</li>
-                      <li>Media Queries</li>
-                      <li>Mobile-first approach</li>
-                    </ul>
-                  ),
-                }
-              ],
-            }}
-          />
-        </div>
-
-          
-            {/* -------------------------DISEÑO CARD----------------------------------*/}
-
-            <div data-aos="fade-up" data-aos-delay="600" className={styles.cardWrapper}>
-          <ServicioCard
-            icon={<Svg route="src/assets/images/modals_assets/design.json" />}
-            titulo="Diseños personalizados desde cero"
-            descripcion="Interfaces únicas y optimizadas construidas a partir de lo que quiera el cliente. Desde cero, sin plantillas"
-            modalData={{
-              title: "Diseño UX/UI",
-              description: "Diseñamos interfaces intuitivas y atractivas pensando en tus usuarios.",
-              image: { src: "src/assets/images/modals_assets/diseño.jpg", alt: "Diseño UX/UI" },
-              tabs: [
-                {
-                  label: "Proceso",
-                  icon: <FaPaintBrush />,
-                  content: (
-                    <ol>
-                      <li>Investigación de usuarios</li>
-                      <li>Wireframing</li>
-                      <li>Diseño visual</li>
-                      <li>Prototipado</li>
-                      <li>Testing</li>
-                    </ol>
-                  ),
-                },
-                {
-                  label: "Entregables",
-                  icon: <FaRocket />,
-                  content: (
-                    <ul>
-                      <li>Design System</li>
-                      <li>Prototipos interactivos</li>
-                      <li>Documentación</li>
-                    </ul>
-                  ),
-                }
-              ],
-            }}
-          />
-        </div>
         
+{/* -----------------------------HOSTING CARD-----------------------------*/}
 
-            {/* -----------------------------SOPORTE CARD-----------------------------*/}
+<div data-aos="fade-up" data-aos-delay="400" className={styles.cardWrapper}>
+  <ServicioCard
+    icon={<Svg route="src/assets/images/modals_assets/hosting.json" />}
+    titulo="Hosting y Dominio"
+    descripcion="Nos encargamos del alojamiento web y el registro de tu dominio personalizado de manera fácil y sin complicaciones."
+    modalData={{
+      title: "Tu página siempre online.",
+      description: "Te ayudamos con todo el proceso de alojamiento y registro de dominio para que tu página esté siempre disponible y fácil de encontrar.",
+      image: { src: "src/assets/images/modals_assets/hosting.webp", alt: "Hosting y Dominio" },
+      tabs: [
+        {
+          label: "",
+          icon: <FaShare />,
+          content: (
+            <ul>
+              <li><h3>Todo en un solo lugar</h3></li>
+              <p>Nos encargamos de todo el proceso: desde el alojamiento de tu página web hasta el registro de tu dominio, sin complicaciones.</p>
+              <li><h4>¿Por qué elegirnos?</h4></li>
+              <p>Con nuestro servicio, tu página estará siempre online, accesible para todos y con un nombre de dominio fácil de recordar.</p>
+            </ul>
+          ),
+        }
+      ],
+    }}
+  />
+</div>
 
-            <div data-aos="fade-up" data-aos-delay="400" className={styles.cardWrapper}>
-          <ServicioCard
-            icon={<Svg route="src/assets/images/modals_assets/hosting.json" />}
-            titulo="Hosting y dominio"
-            descripcion="Gestión de alojamiento web y registro de dominios facil y sin complicaciones."
-            modalData={{
-              title: "Hosting y Dominio",
-              description: "Gestionamos todo el proceso de alojamiento y registro de dominio para tu sitio web.",
-              image: { src: "src/assets/images/modals_assets/hosting.webp", alt: "Hosting" },
-              tabs: [
-                {
-                  label: "Servicios",
-                  icon: <FaServer />,
-                  content: (
-                    <ul>
-                      <li>Hosting optimizado</li>
-                      <li>SSL gratuito</li>
-                      <li>CDN incluido</li>
-                      <li>Soporte DNS</li>
-                    </ul>
-                  ),
-                },
-                {
-                  label: "Características",
-                  icon: <FaCogs />,
-                  content: (
-                    <ul>
-                      <li>Alto rendimiento</li>
-                      <li>Backups automáticos</li>
-                      <li>Panel de control</li>
-                    </ul>
-                  ),
-                }
-              ],
-            }}
-          />
-        </div>
 
-            {/* ----------------------------SOPORTE CARD------------------------------------*/}
-            <div data-aos="fade-up" data-aos-delay="300" className={styles.cardWrapper}>
-          <ServicioCard
-            icon={<Svg route="src/assets/images/modals_assets/support.json" />}
-            titulo="Mantenimiento y soporte técnico"
-            descripcion="Actualizaciones regulares, corrección de errores y soporte continuo."
-            modalData={{
-              title: "Mantenimiento y Soporte",
-              description: "Mantenemos tu sitio actualizado y funcionando perfectamente.",
-              image: { src: "src/assets/images/modals_assets/mantenimiento.png", alt: "Soporte Técnico" },
-              tabs: [
-                {
-                  label: "Servicios",
-                  icon: <FaTools />,
-                  content: (
-                    <ul>
-                      <li>Actualizaciones de seguridad</li>
-                      <li>Backups regulares</li>
-                      <li>Monitoreo 24/7</li>
-                      <li>Soporte técnico</li>
-                    </ul>
-                  ),
-                },
-                {
-                  label: "Plan mensual",
-                  icon: <FaCogs />,
-                  content: (
-                    <ul>
-                      <li>Mantenimiento preventivo</li>
-                      <li>Corrección de errores</li>
-                      <li>Optimización continua</li>
-                    </ul>
-                  ),
-                }
-              ],
-            }}
-          />
-        </div>
+{/* ----------------------------SOPORTE CARD------------------------------------*/}
+<div data-aos="fade-up" data-aos-delay="300" className={styles.cardWrapper}>
+  <ServicioCard
+    icon={<Svg route="src/assets/images/modals_assets/support.json" />}
+    titulo="Mantenimiento y Soporte Técnico"
+    descripcion="Te ofrecemos actualizaciones regulares, corrección de errores y soporte continuo para que tu página siempre esté al día."
+    modalData={{
+      title: "Tu página siempre a punto.",
+      description: "Nos encargamos de mantener tu sitio actualizado, corregir cualquier error y brindarte soporte cuando lo necesites.",
+      image: { src: "src/assets/images/modals_assets/mantenimiento.png", alt: "Soporte Técnico" },
+      tabs: [
+        {
+          label: "",
+          icon: <FaShare />,
+          content: (
+            <ul>
+              <li><h3>Todo en orden, siempre</h3></li>
+              <p>Nos aseguramos de que tu página esté siempre actualizada, con las últimas funciones y libre de errores.</p>
+              <li><h4>¿Por qué es importante?</h4></li>
+              <p>Un sitio web sin mantenimiento puede volverse lento o tener errores que afecten la experiencia del usuario. Nosotros nos encargamos de todo para que no tengas que preocuparte.</p>
+            </ul>
+          ),
+        }
+      ],
+    }}
+  />
+</div>
+
 
 
       </div>
