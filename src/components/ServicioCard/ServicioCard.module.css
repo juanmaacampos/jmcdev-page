@@ -21,24 +21,19 @@
   position: relative;
   flex: 1 1 auto;
   display: flex;
-  -webkit-transform-style: preserve-3d; /* Para Safari */
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden; /* Para Safari */
 }
 
 .flipped .cardInner {
   transform: rotateY(180deg);
 }
 
-.cardFront,
-.cardBack {
+.cardFront, .cardBack {
   position: absolute;
   width: 100%;
   height: 100%;
   min-height: 260px;
   max-height: 100%;
   backface-visibility: hidden;
-  -webkit-backface-visibility: hidden; /* Para Safari */
   border-radius: 18px;
   display: flex;
   flex-direction: column;
@@ -51,7 +46,6 @@
   top: 0;
   left: 0;
   overflow: hidden;
-  touch-action: manipulation; /* Mejora el comportamiento táctil */
 }
 
 .cardFront {
@@ -65,31 +59,15 @@
   transform: rotateY(180deg);
   z-index: 3;
   overflow-y: auto;
-  padding: 0; /* Padding manejado por cardBackContent */
+  padding: 2rem 1.5rem;
   justify-content: flex-start;
   min-height: 260px;
   max-height: 100%;
-  -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
-  overscroll-behavior: contain; /* Previene scroll propagation */
-  transform-style: preserve-3d; /* Mantiene el efecto 3D */
-  will-change: transform; /* Optimiza la performance */
-}
-
-.cardBackContent {
-  width: 100%;
-  padding: 2rem 1.5rem;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100%;
 }
 
 .cardBackTabs {
   width: 100%;
   margin-bottom: 1rem;
-  position: relative; /* Asegura que el contenido permanezca encima */
-  z-index: 1;
 }
 
 .cardBackTab {
@@ -133,7 +111,7 @@
   color: #18191a;
 }
 
-.modalImage {
+.coverImage {
   width: 100%;
   max-height: 120px;
   object-fit: cover;
@@ -241,44 +219,5 @@
 @media (max-width: 700px) {
   .servicioCard {
     padding: 1rem 0.5rem;
-  }
-}
-
-/* Asegurar que funcione en móvil */
-@media (max-width: 768px) {
-  .servicioCard {
-    -webkit-tap-highlight-color: transparent; /* Elimina el highlight al tocar */
-  }
-
-  .cardFront,
-  .cardBack {
-    padding: 1.5rem 1rem;
-  }
-
-  .cardBackContent {
-    padding: 1.5rem 1rem;
-  }
-}
-
-/* Ajustes para permitir scroll en desktop */
-@media (min-width: 769px) {
-  .cardBack {
-    max-height: 500px; /* Altura máxima explícita para forzar scroll */
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: #55d3c4 #18191a;
-  }
-
-  .cardBack::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .cardBack::-webkit-scrollbar-track {
-    background: #18191a;
-  }
-
-  .cardBack::-webkit-scrollbar-thumb {
-    background-color: #55d3c4;
-    border-radius: 3px;
   }
 }

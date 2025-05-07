@@ -81,6 +81,11 @@ export default function Servicios() {
             playsInline
             poster="src/assets/images/parallax_service.png"
           />
+          <img 
+            src="src/assets/images/parallax_service.png"
+            alt="Background"
+            className={styles.parallaxImage}
+          />
         </div>
       </div>
 

@@ -25,8 +25,8 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem; /* Ajusta según lo que prefieras */
   padding-top: 0%;
-  padding-bottom: 3rem ;
-  padding-left: 3rem ;
+  padding-bottom: 3rem;
+  padding-left: 3rem;
   padding-right: 3rem;
   justify-items: stretch; /* Las tarjetas ocupan todo el ancho de la celda */
 }
@@ -106,7 +106,9 @@
 
 @media (max-width: 900px) {
   .videoRevealMask {
-    display: none;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    opacity: 1 !important; /* Forzar opacidad completa */
   }
   .parallaxVideo {
     display: none;
@@ -119,6 +121,7 @@
     min-height: 100%;
     max-width: none;
     max-height: none;
+    opacity: 0.18; /* Asegura la opacidad deseada */
   }
 }
 

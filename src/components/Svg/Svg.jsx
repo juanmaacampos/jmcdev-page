@@ -36,7 +36,6 @@ const Svg = ({ route }) => {
           options={defaultOptions}
           height={100}
           width={100}
-          style={{ maxWidth: '100%', maxHeight: '100%' }}
         />
       )}
     </div>
