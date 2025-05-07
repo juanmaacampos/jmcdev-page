@@ -367,6 +367,32 @@ Componente que aplica un efecto de parallax al movimiento del mouse sobre una im
 - **Parallax y efectos**: El fondo de Servicios usa video solo en desktop, imagen en mobile.
 - **Animaciones**: Uso de AOS para animaciones de entrada, transiciones suaves y efectos visuales.
 
+### Manejo de Imágenes y SVGs
+
+- **Fondo Parallax**: 
+  - Desktop: Video con efecto reveal en hover
+  - Mobile: Imagen estática como fallback
+  - Implementación con `videoRevealMask` y `parallaxImage`
+
+- **SVGs y Lottie**:
+  - Tamaño controlado: 48x48px para iconos de servicios
+  - Contenedor con dimensiones fijas
+  - Prevención de desbordamiento con `overflow: hidden`
+  - Centrado con flexbox en `.iconSvgWrapper`
+
+### Media Queries Clave
+
+```css
+@media (max-width: 900px) {
+  .parallaxVideo { display: none; }
+  .parallaxImage { display: block; }
+  .videoRevealMask {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+  }
+}
+```
+
 ---
 
 ## Animaciones
