@@ -89,7 +89,7 @@ export default function Servicios() {
       <CoolTitle
         className={`${styles.titulo} ${maskActive ? styles.tituloMaskActive : ""}`}
         hoverFonts={[
-          "'Orbitron', 'Geologica', sans-serif",
+          "'Geologica','Orbitron', sans-serif",
           "'Rajdhani', 'DM Sans', sans-serif",
           "'Exo', 'Arial Rounded MT Bold', sans-serif",
           "'Share Tech Mono', 'Montserrat', monospace"

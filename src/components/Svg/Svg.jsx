@@ -30,12 +30,13 @@ const Svg = ({ route }) => {
   };
 
   return (
-    <div>
+    <div style={{ width: '48px', height: '48px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       {animationData && (
         <Lottie
           options={defaultOptions}
-          height={400}
-          width={400}
+          height={100}
+          width={100}
+          style={{ maxWidth: '100%', maxHeight: '100%' }}
         />
       )}
     </div>
