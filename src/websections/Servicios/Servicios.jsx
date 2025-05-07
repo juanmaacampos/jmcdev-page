@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import styles from "./Servicios.module.css";
@@ -9,17 +9,85 @@ import Svg from "../../components/Svg/Svg";
 import MachineTypeTitle from "../../components/MachineTypeTitle/MachineTypeTitle";
 
 export default function Servicios() {
+  const [cursor, setCursor] = useState({ x: 0, y: 0, visible: false });
+  const [maskActive, setMaskActive] = useState(false); // Nuevo estado
+  const sectionRef = useRef(null);
+
   useEffect(() => {
     AOS.init({
       duration: 800,
       once: true
     });
+
+    const handleMouseMove = (e) => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      setCursor({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+        visible: true,
+      });
+      setMaskActive(true); // Activa la máscara
+    };
+    const handleMouseLeave = () => {
+      setCursor((c) => ({ ...c, visible: false }));
+      setMaskActive(false); // Desactiva la máscara
+    };
+
+    const section = sectionRef.current;
+    if (section) {
+      section.addEventListener("mousemove", handleMouseMove);
+      section.addEventListener("mouseleave", handleMouseLeave);
+    }
+    return () => {
+      if (section) {
+        section.removeEventListener("mousemove", handleMouseMove);
+        section.removeEventListener("mouseleave", handleMouseLeave);
+      }
+    };
   }, []);
 
   return (
-    <section className={styles.serviciosSection} id="servicios">
+    <section
+      className={styles.serviciosSection}
+      id="servicios"
+      ref={sectionRef}
+    >
+      {/* Fondo parallax con video y máscara circular */}
+      <div className={styles.parallaxBackground}>
+          <div
+          className={styles.videoRevealMask}
+          style={
+            cursor.visible
+              ? {
+                  WebkitMaskImage: `radial-gradient(circle 120px at ${cursor.x}px ${cursor.y}px, white 90%, transparent 100%)`,
+                  maskImage: `radial-gradient(circle 300px at ${cursor.x}px ${cursor.y}px, white 90%, transparent 100%)`,
+                  pointerEvents: "none",
+                }
+              : {
+                  WebkitMaskImage: "none",
+                  maskImage: "none",
+                  opacity: 0,
+                  pointerEvents: "none",
+                }
+          }
+        >
+          <video
+            className={styles.parallaxVideo}
+            src="src/assets/images/parallax_servicio.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster="src/assets/images/parallax_service.png"
+          />
+        </div>
+      </div>
+
+      {/* Titulo con efectos ---------------------------------------------------------------------------*/}
+
       <CoolTitle
-        className={styles.titulo}
+        className={`${styles.titulo} ${maskActive ? styles.tituloMaskActive : ""}`}
         hoverFonts={[
           "'Orbitron', 'Geologica', sans-serif",
           "'Rajdhani', 'DM Sans', sans-serif",
@@ -27,17 +95,24 @@ export default function Servicios() {
           "'Share Tech Mono', 'Montserrat', monospace"
         ]}
         fontTransition="0.5s"
+        maskActive={maskActive} 
       >
 Transformamos <CoolTitle>tu presencia digital</CoolTitle> 
 </CoolTitle>
+
+      {/* Cards y sus Modals ----------------------------------------------------------------------------*/}
+
       <div className={styles.serviciosGrid}>
+
+      {/*  -----------------------DESARROLLO WEB CARD------------------------------------*/}
+
         <div data-aos="fade-up" data-aos-delay="100" className={styles.cardWrapper}>
           <ServicioCard
             icon={<Svg route="src/assets/images/modals_assets/world.json" />}
-            titulo="Desarrollo Web"
-            descripcion="Sitios web modernos, rápidos y personalizados para tu negocio."
+            titulo="Creación de paginas web personalizadas"
+            descripcion="Creamos sitios web modernos a medida para tu negocio, optimizados para aparecer primero en las busquedas de Google."
             modalData={{
-              title: "Desarrollo Web",
+              title: "Creación de paginas web",
               description: "Creamos sitios web modernos, rápidos y personalizados para tu negocio.",
               image: { src: "src/assets/images/modals_assets/desarrollo_web.jpg", alt: "Desarrollo Web" },
               tabs: [
@@ -74,11 +149,55 @@ Transformamos <CoolTitle>tu presencia digital</CoolTitle>
             }}
           />
         </div>
-        <div data-aos="fade-up" data-aos-delay="200" className={styles.cardWrapper}>
+
+      {/*  -----------------------REDES SOCIALES CARD------------------------------------*/}
+
+
+            <div data-aos="fade-up" data-aos-delay="500" className={styles.cardWrapper}>
           <ServicioCard
-            icon={<Svg route="src/assets/images/modals_assets/responsive.json" />}
-            titulo="Diseño Responsivo"
-            descripcion="Tu página se verá perfecta en cualquier dispositivo, ya sea PC o celular."
+            icon={<Svg route="/src/assets/images/modals_assets/social.json" />}
+            titulo="Potenciación de Redes Sociales"
+            descripcion="Impulsamos tu negocio en redes con contenido llamativo, diseño de publicaciones y estrategias de para llegar a mas publico"
+            modalData={{
+              title: "Integración Social",
+              description: "Integra tus redes sociales de forma profesional en tu sitio web.",
+              image: { src: "src/assets/images/modals_assets/redes.webp", alt: "Redes Sociales" },
+              tabs: [
+                {
+                  label: "Integraciones",
+                  icon: <FaShare />,
+                  content: (
+                    <ul>
+                      <li>Feed de Instagram</li>
+                      <li>Timeline de Twitter</li>
+                      <li>Posts de Facebook</li>
+                      <li>Videos de YouTube</li>
+                    </ul>
+                  ),
+                },
+                {
+                  label: "Funcionalidades",
+                  icon: <FaCogs />,
+                  content: (
+                    <ul>
+                      <li>Compartir automático</li>
+                      <li>Botones sociales</li>
+                      <li>Analytics integrado</li>
+                    </ul>
+                  ),
+                }
+              ],
+            }}
+          />
+        </div>
+
+      {/*  -----------------------FOTOGRAFIA CARD------------------------------------*/}
+
+            <div data-aos="fade-up" data-aos-delay="200" className={styles.cardWrapper}>
+          <ServicioCard
+            icon={<Svg route="src/assets/images/modals_assets/camera.json" />}
+            titulo="Servicio de fotografia profesional"
+            descripcion="Fotos profesionales tomadas con camara reflex para usar imagenes visualmente llamativas para tu pagina y redes sociales"
             modalData={{
               title: "Diseño Responsivo",
               description: "Tu página se verá perfecta en cualquier dispositivo, ya sea PC o celular.",
@@ -111,43 +230,10 @@ Transformamos <CoolTitle>tu presencia digital</CoolTitle>
             }}
           />
         </div>
-        <div data-aos="fade-up" data-aos-delay="300" className={styles.cardWrapper}>
-          <ServicioCard
-            icon={<Svg route="src/assets/images/modals_assets/support.json" />}
-            titulo="Mantenimiento y soporte técnico"
-            descripcion="Actualizaciones regulares, corrección de errores y soporte continuo."
-            modalData={{
-              title: "Mantenimiento y Soporte",
-              description: "Mantenemos tu sitio actualizado y funcionando perfectamente.",
-              image: { src: "src/assets/images/modals_assets/mantenimiento.png", alt: "Soporte Técnico" },
-              tabs: [
-                {
-                  label: "Servicios",
-                  icon: <FaTools />,
-                  content: (
-                    <ul>
-                      <li>Actualizaciones de seguridad</li>
-                      <li>Backups regulares</li>
-                      <li>Monitoreo 24/7</li>
-                      <li>Soporte técnico</li>
-                    </ul>
-                  ),
-                },
-                {
-                  label: "Plan mensual",
-                  icon: <FaCogs />,
-                  content: (
-                    <ul>
-                      <li>Mantenimiento preventivo</li>
-                      <li>Corrección de errores</li>
-                      <li>Optimización continua</li>
-                    </ul>
-                  ),
-                }
-              ],
-            }}
-          />
-        </div>
+
+          
+            {/* -------------------------HOSTING CARD----------------------------------*/}
+
         <div data-aos="fade-up" data-aos-delay="400" className={styles.cardWrapper}>
           <ServicioCard
             icon={<Svg route="src/assets/images/modals_assets/hosting.json" />}
@@ -185,44 +271,10 @@ Transformamos <CoolTitle>tu presencia digital</CoolTitle>
             }}
           />
         </div>
-        <div data-aos="fade-up" data-aos-delay="500" className={styles.cardWrapper}>
-          <ServicioCard
-            icon={<Svg route="/src/assets/images/modals_assets/social.json" />}
-            titulo="Integración con redes sociales"
-            descripcion="Conexión automática con plataformas sociales integradas en tiempo real en la web."
-            modalData={{
-              title: "Integración Social",
-              description: "Integra tus redes sociales de forma profesional en tu sitio web.",
-              image: { src: "src/assets/images/modals_assets/redes.webp", alt: "Redes Sociales" },
-              tabs: [
-                {
-                  label: "Integraciones",
-                  icon: <FaShare />,
-                  content: (
-                    <ul>
-                      <li>Feed de Instagram</li>
-                      <li>Timeline de Twitter</li>
-                      <li>Posts de Facebook</li>
-                      <li>Videos de YouTube</li>
-                    </ul>
-                  ),
-                },
-                {
-                  label: "Funcionalidades",
-                  icon: <FaCogs />,
-                  content: (
-                    <ul>
-                      <li>Compartir automático</li>
-                      <li>Botones sociales</li>
-                      <li>Analytics integrado</li>
-                    </ul>
-                  ),
-                }
-              ],
-            }}
-          />
-        </div>
-        <div data-aos="fade-up" data-aos-delay="600" className={styles.cardWrapper}>
+
+            {/* -----------------------------DISEÑO WEB CARD-----------------------------*/}
+
+            <div data-aos="fade-up" data-aos-delay="600" className={styles.cardWrapper}>
           <ServicioCard
             icon={<Svg route="src/assets/images/modals_assets/design.json" />}
             titulo="Diseño personalizado de UX/UI"
@@ -260,6 +312,48 @@ Transformamos <CoolTitle>tu presencia digital</CoolTitle>
             }}
           />
         </div>
+
+
+            {/* ----------------------------SOPORTE CARD------------------------------------*/}
+            <div data-aos="fade-up" data-aos-delay="300" className={styles.cardWrapper}>
+          <ServicioCard
+            icon={<Svg route="src/assets/images/modals_assets/support.json" />}
+            titulo="Mantenimiento y soporte técnico"
+            descripcion="Actualizaciones regulares, corrección de errores y soporte continuo."
+            modalData={{
+              title: "Mantenimiento y Soporte",
+              description: "Mantenemos tu sitio actualizado y funcionando perfectamente.",
+              image: { src: "src/assets/images/modals_assets/mantenimiento.png", alt: "Soporte Técnico" },
+              tabs: [
+                {
+                  label: "Servicios",
+                  icon: <FaTools />,
+                  content: (
+                    <ul>
+                      <li>Actualizaciones de seguridad</li>
+                      <li>Backups regulares</li>
+                      <li>Monitoreo 24/7</li>
+                      <li>Soporte técnico</li>
+                    </ul>
+                  ),
+                },
+                {
+                  label: "Plan mensual",
+                  icon: <FaCogs />,
+                  content: (
+                    <ul>
+                      <li>Mantenimiento preventivo</li>
+                      <li>Corrección de errores</li>
+                      <li>Optimización continua</li>
+                    </ul>
+                  ),
+                }
+              ],
+            }}
+          />
+        </div>
+
+
       </div>
     </section>
   );

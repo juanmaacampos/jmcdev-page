@@ -4,6 +4,7 @@ import MachineTypeTitle from '../../components/MachineTypeTitle/MachineTypeTitle
 import styles from './Header.module.css';
 import CoolTitle from '../../components/CoolTitle/CoolTitle';
 import { FaEye, FaGithub, FaLaptop, FaListAlt } from 'react-icons/fa';
+import ParallaxMouseImage from '../../components/ParallaxMouseImage/ParallaxMouseImage';
 
 function Header() {
   return (
@@ -18,12 +19,12 @@ function Header() {
             />
             
             <p className={styles.description}>
-            Diseñamos sitios web únicos que conectan con tu audiencia y hacen crecer tu negocio, combinando creatividad, tecnología y <strong>el mejor precio del mercado. </strong></p>
+            <strong>Diseñamos sitios web únicos y optimizamos redes sociales usando fotografías profesionales</strong> para conectar con tu audiencia y crecer tu negocio con creatividad y tecnología.</p>
 
           </div>
           
           <div className={styles.imageWrapper}>
-            <img 
+            <ParallaxMouseImage 
               src="/src/assets/images/header_img.png" 
               alt="Desarrollo web" 
               className={styles.headerImage}

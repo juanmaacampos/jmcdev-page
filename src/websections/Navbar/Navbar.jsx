@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Logo from '../../components/Logo/Logo';
 import Button from '../../components/Button/Button';
 import { FaBriefcase, FaClipboardList, FaUser, FaEnvelope, FaHome } from 'react-icons/fa';
@@ -6,6 +6,28 @@ import './Navbar.css';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState(null);
+  const [prevOffset, setPrevOffset] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentOffset = window.pageYOffset;
+
+      if (prevOffset > currentOffset) {
+        setScrollDirection('up');
+      } else if (prevOffset < currentOffset) {
+        setScrollDirection('down');
+      }
+
+      setPrevOffset(currentOffset);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [prevOffset]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -13,10 +35,15 @@ const Navbar = () => {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => {
+      setIsMenuOpen(false); // Close the mobile menu after a delay
+    }, 100); // Adjust the delay (in milliseconds) as needed
   };
 
+  const navbarClass = `navbar ${scrollDirection === 'down' ? 'hidden' : ''}`;
+
   return (
-    <nav className="navbar">
+    <nav className={navbarClass}>
       <div className="navbar-container">
         <Logo onClick={scrollToTop} />
 

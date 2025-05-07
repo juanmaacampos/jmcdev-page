@@ -1,88 +1,131 @@
 # JMCdev Webpage
 
-Este proyecto es una landing page moderna desarrollada en React. A continuación se describen todos los componentes principales, sus props y ejemplos de uso.
+Sitio web profesional para servicios de desarrollo web, realizado en React con Vite y CSS Modules.
 
 ---
 
-## Componentes
+## Índice
 
-### 1. `Button`
+- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Flujo y Orden de las Secciones](#flujo-y-orden-de-las-secciones)
+- [Componentes Globales](#componentes-globales)
+  - [CoolTitle](#cooltitle)
+  - [MachineTypeTitle](#machinetypetitle)
+  - [Button](#button)
+  - [ServicioCard](#serviciocard)
+  - [CardModal](#cardmodal)
+  - [Svg](#svg)
+  - [IconLink](#iconlink)
+  - [LoaderDiagonal](#loaderdiagonal)
+  - [Logo](#logo)
+  - [ParallaxMouseImage](#parallaxmouseimage)
+- [Secciones Principales](#secciones-principales)
+  - [Navbar](#navbar)
+  - [Header](#header)
+  - [Servicios](#servicios)
+  - [Proceso](#proceso)
+  - [Planes](#planes)
+  - [Portafolio](#portafolio)
+  - [Testimonios](#testimonios)
+  - [Contacto](#contacto)
+  - [Footer](#footer)
+- [Estilos y Responsividad](#estilos-y-responsividad)
+- [Animaciones](#animaciones)
+- [Recursos y Assets](#recursos-y-assets)
 
-Botón reutilizable con variantes de color, tamaño y efectos.
+---
 
-**Props:**
-- `label` (string): Texto del botón.
-- `onClick` (func): Función al hacer click.
-- `to` (string): Ruta interna (`/ruta`) o externa (`https://...`).
-- `color` (string): Color principal (hex o CSS).
-- `effect` (string): `'normal' | 'neon' | 'primary'`.
-- `size` (string): `'small' | 'medium' | 'big'`.
-- `shape` (string): `'normal' | 'square'`.
-- `className` (string): Clases CSS adicionales.
-- `style` (object): Estilos en línea.
+## Estructura del Proyecto
 
-**Uso:**
-```jsx
-<Button label="Ver más" to="/proyectos" effect="neon" size="big" />
-<Button label="GitHub" to="https://github.com/juanmaacampos" color="#B687F7" />
+```
+src/
+  components/
+    Button/
+    CardModal/
+    CoolTitle/
+    IconLink/
+    Loader/
+    Logo/
+    MachineTypeTitle/
+    ServicioCard/
+    Svg/
+  websections/
+    Contacto/
+    Header/
+    Navbar/
+    Planes/
+    Portafolio/
+    Proceso/
+    Servicios/
+    Testimonios/
+    footer/
+  assets/
+    images/
+    videos/
+  App.jsx
+  App.css
+  main.jsx
+  index.css
 ```
 
 ---
 
-### 2. `Card`
+## Flujo y Orden de las Secciones
 
-Tarjeta informativa con imagen, título, subtítulo, contenido y acciones.
+El orden de renderizado en `App.jsx` es:
+
+1. **LoaderDiagonal** (pantalla de carga)
+2. **Navbar** (barra de navegación fija)
+3. **Header** (hero principal, pantalla completa)
+4. **Servicios** (parallax con cards y modales)
+5. **Proceso** (pasos de trabajo)
+6. **Planes** (tarjetas de planes)
+7. **Portafolio** (proyectos recientes)
+8. **Testimonios** (opiniones de clientes)
+9. **Contacto** (formulario y datos)
+10. **Footer** (pie de página)
+
+---
+
+## Componentes Globales
+
+### CoolTitle
+
+**Función:**  
+Título grande con gradiente y animaciones de fuente al hacer hover o scroll.
 
 **Props:**
-- `title` (string)
-- `subtitle` (string)
-- `content` (ReactNode)
-- `image` ({ src, alt })
-- `actions` (array de ReactNode)
-- `variant` (string): `'default' | 'outlined' | 'elevated'`
-- `hoverable` (bool)
-- `className` (string)
-- `onClick` (func)
+- `children`: string | ReactNode. Contenido del título.
+- `className`: string. Clases CSS adicionales.
+- `animation`: string. Tipo de animación (`'none'`, `'glitch'`, `'neon'`, `'slide'`, `'bounce'`, `'fade'`, `'typewriter'`).
+- `hoverFonts`: array de string. Fuentes a alternar en hover/scroll.
+- `fontTransition`: string. Duración de la transición de fuente.
 
 **Uso:**
 ```jsx
-<Card
-  title="Proyecto"
-  subtitle="Landing Page"
-  content="Descripción breve del proyecto."
-  image={{ src: "/img.png", alt: "Imagen" }}
-  actions={[<Button label="Ver" to="/proyecto" />]}
-/>
+<CoolTitle
+  animation="glitch"
+  hoverFonts={["'Orbitron', sans-serif", "'Rajdhani', sans-serif"]}
+>
+  ¡Bienvenido!
+</CoolTitle>
 ```
 
 ---
 
-### 3. `CoolTitle`
+### MachineTypeTitle
 
-Título grande con gradiente.
-
-**Props:**
-- `children` (string | ReactNode)
-- `className` (string)
-
-**Uso:**
-```jsx
-<CoolTitle>Texto llamativo</CoolTitle>
-```
-
----
-
-### 4. `MachineTypeTitle`
-
-Título animado tipo máquina de escribir.
+**Función:**  
+Animación de máquina de escribir para palabras clave.
 
 **Props:**
-- `words` (array de string): Palabras a animar.
-- `typingSpeed` (number): ms por letra (default 90).
-- `deletingSpeed` (number): ms por letra (default 40).
-- `pause` (number): ms de pausa entre palabras (default 1200).
-- `className` (string)
-- `color` (string): Gradiente o color CSS.
+- `words`: array de string. Palabras a animar.
+- `typingSpeed`: number. ms por letra (default 90).
+- `deletingSpeed`: number. ms por letra (default 40).
+- `pause`: number. ms de pausa entre palabras (default 1200).
+- `className`: string.
+- `color`: string. Gradiente o color CSS.
+- `fonts`: array de string. Fuentes a alternar.
 
 **Uso:**
 ```jsx
@@ -94,61 +137,130 @@ Título animado tipo máquina de escribir.
 
 ---
 
-### 5. `Svg`
+### Button
 
-Animación SVG Lottie adaptable.
+**Función:**  
+Botón reutilizable con variantes de color, tamaño, forma, icono y efectos.
 
 **Props:**
-- `route` (string): Ruta al archivo JSON de la animación.
+- `label`: string. Texto del botón.
+- `onClick`: función.
+- `to`: string. Link interno o externo.
+- `color`: string. Color principal.
+- `effect`: string. `'normal'`, `'neon'`, `'primary'`.
+- `size`: string. `'small'`, `'medium'`, `'big'`.
+- `shape`: string. `'normal'`, `'square'`.
+- `icon`: ReactNode. Icono opcional.
+- `scrollTarget`: string. ID de sección para scroll suave.
 
 **Uso:**
 ```jsx
-<Svg animationDataPath="/src/assets/animated/responsive_ani.json" />
+<Button label="Ver más" effect="neon" size="big" icon={<FaEye />} />
+<Button label="Contacto" to="#contacto" effect="primary" />
 ```
 
 ---
 
-### 6. `IconLink`
+### ServicioCard
 
-Enlace con ícono (usando react-icons).
+**Función:**  
+Tarjeta de servicio con icono, título, descripción y modal detallado.
 
 **Props:**
-- `icon` (React component): Ej. `FaGithub`
-- `to` (string): URL o ruta interna.
-- `label` (string): Accesibilidad.
-- `size` (string): `'small' | 'medium' | 'large'`
-- `effect` (string): `'fade' | 'scale'`
-- `color` (string): Color del ícono.
-- `className` (string)
-- `external` (bool): Si es enlace externo.
+- `icon`: ReactNode. Icono o animación.
+- `svg`: ReactNode. Alternativa a icon.
+- `titulo`: string.
+- `descripcion`: string.
+- `modalData`: objeto con datos del modal (ver CardModal).
 
 **Uso:**
 ```jsx
-<IconLink icon={FaGithub} to="https://github.com" label="GitHub" effect="scale" color="#181717" external />
+<ServicioCard
+  icon={<Svg route="src/assets/images/modals_assets/world.json" />}
+  titulo="Desarrollo Web"
+  descripcion="Sitios web modernos, rápidos y personalizados."
+  modalData={{ ... }}
+/>
 ```
 
 ---
 
-### 7. `Logo`
+### CardModal
 
-Logo de la marca.
+**Función:**  
+Modal informativo con tabs, imagen, título, descripción y animaciones.
 
 **Props:**
-- `onClick` (func): Acción al clickear.
+- `open`: boolean. Si el modal está abierto.
+- `onClose`: función. Cierra el modal.
+- `title`: string.
+- `subtitle`: string.
+- `description`: string.
+- `image`: objeto `{src, alt}`.
+- `tabs`: array de `{label, icon, content}`.
+- `headerAnimation`, `contentAnimation`, `tabsAnimation`: string. Animaciones AOS.
+- `animationDelay`: number.
 
 **Uso:**
 ```jsx
-<Logo onClick={() => window.scrollTo(0,0)} />
+<CardModal
+  open={open}
+  onClose={() => setOpen(false)}
+  title="Desarrollo Web"
+  description="Creamos sitios web modernos..."
+  image={{ src: "...", alt: "..." }}
+  tabs={[
+    { label: "¿Qué incluye?", content: <ul>...</ul> },
+    { label: "Tecnologías", content: <div>...</div> }
+  ]}
+/>
 ```
 
 ---
 
-### 8. `LoaderDiagonal`
+### Svg
 
-Animación de carga diagonal.
+**Función:**  
+Carga y muestra animaciones Lottie desde un archivo `.json`.
 
 **Props:**
-- `isVisible` (bool): Si se muestra el loader.
+- `route`: string. Ruta al archivo Lottie.
+
+**Uso:**
+```jsx
+<Svg route="src/assets/images/modals_assets/world.json" />
+```
+
+---
+
+### IconLink
+
+**Función:**  
+Enlace con icono, efectos de hover y soporte para links internos/externos.
+
+**Props:**
+- `icon`: componente de react-icons.
+- `to`: string. URL o ruta interna.
+- `label`: string. Descripción accesible.
+- `size`: string. `'small'`, `'medium'`, `'large'`.
+- `effect`: string. `'fade'`, `'scale'`, `'pulse'`.
+- `color`: string.
+- `external`: boolean.
+
+**Uso:**
+```jsx
+<IconLink icon={FaGithub} to="https://github.com" label="GitHub" external />
+```
+
+---
+
+### LoaderDiagonal
+
+**Función:**  
+Pantalla de carga animada con franjas diagonales.
+
+**Props:**
+- `isVisible`: boolean.
 
 **Uso:**
 ```jsx
@@ -157,40 +269,171 @@ Animación de carga diagonal.
 
 ---
 
-### 9. `Section`
+### Logo
 
-Contenedor de sección con espaciado y ancho configurable.
+**Función:**  
+Logo de la marca, clickeable.
 
 **Props:**
-- `children` (ReactNode)
-- `background` (string): Color o imagen de fondo.
-- `spacing` (string): `'small' | 'medium' | 'large'`
-- `width` (string): `'narrow' | 'default' | 'wide' | 'full'`
-- `className` (string)
-- `containerClassName` (string)
-- `id` (string)
+- `onClick`: función.
 
 **Uso:**
 ```jsx
-<Section spacing="large" width="wide" background="#222">
-  <h2>Sección</h2>
-</Section>
+<Logo onClick={() => window.scrollTo(0,0)} />
 ```
 
 ---
 
-## Estructura de carpetas
+### ParallaxMouseImage
 
-- `src/components/`: Componentes reutilizables.
-- `src/principalComponents/`: Componentes principales de la página (Header, Navbar, Footer, etc).
-- `src/assets/images/`: Imágenes usadas.
+**Función:**  
+Componente que aplica un efecto de parallax al movimiento del mouse sobre una imagen.
+
+**Props:**
+- `src`: string. Ruta de la imagen.
+- `alt`: string. Texto alternativo de la imagen.
+- `className`: string. Clases CSS adicionales.
+- `draggable`: boolean. Indica si la imagen es arrastrable.
+
+**Uso:**
+```jsx
+<ParallaxMouseImage
+  src="/src/assets/images/header_img.png"
+  alt="Desarrollo web"
+  className={styles.headerImage}
+  draggable={false}
+/>
+```
 
 ---
 
-## Notas
+## Secciones Principales
 
-- Todos los estilos usan CSS Modules.
-- Los íconos provienen de [react-icons](https://react-icons.github.io/react-icons/).
-- Navegación con `react-router-dom`.
+### Navbar
+
+- Barra de navegación fija superior.
+- Botones para scroll a secciones: Servicios, Planes, Proyectos, Contacto.
+- Menú hamburguesa en mobile.
+
+### Header
+
+- Hero principal, ocupa toda la pantalla.
+- Título animado (`CoolTitle` + `MachineTypeTitle`).
+- Imagen ilustrativa.
+- Descripción y posibles botones de acción.
+
+### Servicios
+
+- Fondo parallax (video en desktop, imagen en mobile).
+- Cards de servicios (`ServicioCard`), cada una abre un `CardModal` con detalles.
+- Efecto especial: el cursor revela el video de fondo en un círculo (desktop).
+
+### Proceso
+
+- Explica los pasos de trabajo.
+- Grid de pasos con título y descripción.
+
+### Planes
+
+- Tarjetas de planes de servicio.
+- Destaca el plan recomendado.
+- Botón para contactar.
+
+### Portafolio
+
+- Muestra proyectos recientes.
+- Imagen, título, subtítulo, descripción y acciones.
+
+### Testimonios
+
+- Opiniones de clientes.
+- Grid de tarjetas con nombre y texto.
+
+### Contacto
+
+- Formulario de contacto.
+- Datos de contacto directo (email, WhatsApp).
+
+### Footer
+
+- Pie de página con información legal, links y redes.
 
 ---
+
+## Estilos y Responsividad
+
+- **CSS Modules**: Cada componente/sección tiene su propio archivo de estilos.
+- **Breakpoints**: Adaptado para desktop, tablet y mobile.
+- **Parallax y efectos**: El fondo de Servicios usa video solo en desktop, imagen en mobile.
+- **Animaciones**: Uso de AOS para animaciones de entrada, transiciones suaves y efectos visuales.
+
+---
+
+## Animaciones
+
+- **AOS**: Animaciones de entrada en cards, modales y secciones.
+- **CoolTitle**: Animaciones de fuente y gradiente.
+- **MachineTypeTitle**: Efecto máquina de escribir.
+- **LoaderDiagonal**: Franjas animadas en pantalla de carga.
+- **ServicioCard**: Hover y apertura de modal.
+- **Servicios**: Efecto reveal del video con el cursor (desktop).
+
+---
+
+## Recursos y Assets
+
+- **Imágenes**: `/src/assets/images/`
+- **Videos**: `/src/assets/videos/`
+- **Lottie JSON**: Animaciones para iconos y cards.
+- **Fuentes**: Google Fonts (`Geologica`, `DM Sans`, `Orbitron`, etc).
+
+---
+
+## Ejemplo de Uso en App.jsx
+
+```jsx
+import LoaderDiagonal from "./components/Loader/Loader";
+import Navbar from "./websections/Navbar/Navbar";
+import Header from "./websections/Header/Header";
+import Servicios from "./websections/Servicios/Servicios";
+import Proceso from "./websections/Proceso/Proceso";
+import Planes from "./websections/Planes/Planes";
+import Portafolio from "./websections/Portafolio/Portafolio";
+import Testimonios from "./websections/Testimonios/Testimonios";
+import Contacto from "./websections/Contacto/Contacto";
+import Footer from "./websections/footer/Footer";
+
+function App() {
+  // ...loading logic...
+  return (
+    <>
+      <LoaderDiagonal isVisible={loading} />
+      <div className={`contenido ${contentVisible ? 'visible' : ''}`}>
+        <Navbar />
+        <Header />
+        <Servicios />
+        <Proceso />
+        <Planes />
+        <Portafolio />
+        <Testimonios />
+        <Contacto />
+        <Footer />
+      </div>
+    </>
+  );
+}
+```
+
+---
+
+## Notas Finales
+
+- **Personalización**: Puedes modificar los assets, colores y textos fácilmente.
+- **Extensibilidad**: Agrega más servicios, proyectos o testimonios editando los arrays correspondientes.
+- **Accesibilidad**: Se recomienda revisar los textos alternativos y roles para mejorar la accesibilidad.
+
+---
+
+¿Dudas o sugerencias?  
+Contacta a [hola@jmcdev.com](mailto:hola@jmcdev.com)
+

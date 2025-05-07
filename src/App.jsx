@@ -31,7 +31,6 @@ function App() {
 
       <div className={`contenido ${contentVisible ? 'visible' : ''}`}>
         <Navbar />
-        <main>
           <Header />
           <Servicios />
           <Proceso />
@@ -39,7 +38,6 @@ function App() {
           <Portafolio />
           <Testimonios />
           <Contacto />
-        </main>
         <Footer />
       </div>
     </>

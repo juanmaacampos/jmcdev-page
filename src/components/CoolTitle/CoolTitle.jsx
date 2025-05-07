@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './CoolTitle.module.css';
 
-function CoolTitle({ children, className, animation = 'none', hoverFonts = [], fontTransition = "0.5s" }) {
+function CoolTitle({ children, className, animation = 'none', hoverFonts = [], fontTransition = "0.5s", maskActive }) {
   const [fontIndex, setFontIndex] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
   const isMobile = typeof window !== "undefined" && window.innerWidth <= 900;
@@ -37,11 +37,12 @@ function CoolTitle({ children, className, animation = 'none', hoverFonts = [], f
 
   return (
     <h1
-      className={`${styles.title} ${styles[animation]} ${className || ''} ${transitioning ? styles.fontTransitioning : ''}`}
+      className={`${styles.title} ${styles[animation]} ${className || ''} ${transitioning ? styles.fontTransitioning : ''} ${maskActive ? styles.maskActive : ''}`}
       data-text={children}
       style={{
         ...fontFamily,
-        transition: `font-family ${fontTransition} cubic-bezier(0.4,0,0.2,1), color 0.2s, background 0.2s`
+        transition: `font-family ${fontTransition} cubic-bezier(0.4,0,0.2,1), color 0.2s, background 0.2s`,
+        color: maskActive ? 'green' : 'inherit'
       }}
       onMouseEnter={handleMouseEnter}
     >
