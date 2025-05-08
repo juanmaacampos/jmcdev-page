@@ -2,38 +2,49 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="data:image/png;base64,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" />
+    <link rel="icon" href="/jmcdev-page/jmcdev.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JMCdev: Desarrollo Web y Diseño de Páginas Web Profesionales</title>
-    
-    <!-- Meta SEO -->
-    <meta name="description" content="Desarrollo web profesional, diseño de páginas web y posicionamiento SEO. Creamos sitios web modernos y optimizados para Google." />
+
+    <!-- SEO Meta -->
+    <meta name="description" content="Diseñamos sitios web únicos y optimizamos redes sociales usando fotografías profesionales para conectar con tu audiencia y crecer tu negocio con creatividad y tecnología." />
     <meta name="keywords" content="desarrollo web, diseño web, SEO, páginas web, sitios web, Argentina" />
     <meta name="author" content="JMCdev" />
     <meta name="robots" content="index, follow" />
 
-    <!-- HTML Meta Tags -->
-    <title>JMCdev: Experiencias digitales que venden.</title>
-    <meta name="description" content="Diseñamos sitios web únicos y optimizamos redes sociales usando fotografías profesionales para conectar con tu audiencia y crecer tu negocio con creatividad y tecnología.">
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:url" content="https://juanmaacampos.github.io/jmcdev-page/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="JMCdev: Experiencias digitales que venden." />
+    <meta property="og:description" content="Diseñamos sitios web únicos y optimizamos redes sociales usando fotografías profesionales para conectar con tu audiencia y crecer tu negocio con creatividad y tecnología." />
+    <meta property="og:image" content="https://juanmaacampos.github.io/jmcdev-page/jmcdev.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_AR" />
 
-    <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="https://juanmaacampos.github.io/jmcdev-page/">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="JMCdev: Experiencias digitales que venden.">
-    <meta property="og:description" content="Diseñamos sitios web únicos y optimizamos redes sociales usando fotografías profesionales para conectar con tu audiencia y crecer tu negocio con creatividad y tecnología.">
-    <meta property="og:image" content="https://opengraph.b-cdn.net/production/images/d3229f39-c4ba-4875-b725-b3d7936b520c.png?token=-hOD9L716QAxQ5XeH0fWQyPjjfKhc_srbtbLNZ6v0p0&height=400&width=800&expires=33282681584">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="JMCdev: Experiencias digitales que venden." />
+    <meta name="twitter:description" content="Diseñamos sitios web únicos y optimizamos redes sociales usando fotografías profesionales para conectar con tu audiencia y crecer tu negocio con creatividad y tecnología." />
+    <meta name="twitter:image" content="https://juanmaacampos.github.io/jmcdev-page/jmcdev.png" />
+    <meta name="twitter:image:alt" content="JMCdev Desarrollo Web" />
 
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="juanmaacampos.github.io">
-    <meta property="twitter:url" content="https://juanmaacampos.github.io/jmcdev-page/">
-    <meta name="twitter:title" content="JMCdev: Experiencias digitales que venden.">
-    <meta name="twitter:description" content="Diseñamos sitios web únicos y optimizamos redes sociales usando fotografías profesionales para conectar con tu audiencia y crecer tu negocio con creatividad y tecnología.">
-    <meta name="twitter:image" content="https://opengraph.b-cdn.net/production/images/d3229f39-c4ba-4875-b725-b3d7936b520c.png?token=-hOD9L716QAxQ5XeH0fWQyPjjfKhc_srbtbLNZ6v0p0&height=400&width=800&expires=33282681584">
-
-    <!-- Meta Tags Generated via https://www.opengraph.xyz -->
-    <script type="module" crossorigin src="https://juanmaacampos.github.io/jmcdev-page/assets/index-bb302d23.js"></script>
-    <link rel="stylesheet" href="https://juanmaacampos.github.io/jmcdev-page/assets/index-b7ab2862.css">
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "JMCdev",
+      "url": "https://juanmaacampos.github.io/jmcdev-page/",
+      "description": "Diseño y desarrollo de sitios web y redes optimizados para negocios.",
+      "image": "https://juanmaacampos.github.io/jmcdev-page/jmcdev.png"
+    }
+    </script>
+    
+    <!-- Preload important assets -->
+    <link rel="preload" href="/jmcdev-page/jmcdev.png" as="image" />
+    <script type="module" crossorigin src="/jmcdev-page/assets/index-7d885442.js"></script>
+    <link rel="stylesheet" href="/jmcdev-page/assets/index-91676e44.css">
   </head>
   <body>
     <main id="root"></main>
