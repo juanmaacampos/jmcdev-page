@@ -5,6 +5,7 @@ import { FaWhatsapp, FaInstagram, FaLinkedinIn, FaGithub } from 'react-icons/fa'
 import { BsBriefcase } from 'react-icons/bs';
 import styles from './Footer.module.css';
 
+
 const Footer = () => {
     const currentYear = new Date().getFullYear();
 

@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Logo from '../../components/Logo/Logo';
 import Button from '../../components/Button/Button';
 import { FaBriefcase, FaClipboardList, FaUser, FaEnvelope, FaHome } from 'react-icons/fa';
-// Import images using ES6 import syntax
-import logoImage from '../../assets/images/jmcdev.png';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -45,10 +43,9 @@ const Navbar = () => {
   const navbarClass = `navbar ${scrollDirection === 'down' ? 'hidden' : ''}`;
 
   return (
-    <nav className={navbarClass} style={navbarStyle}>
+    <nav className={navbarClass}>
       <div className="navbar-container">
-        {/* Example of passing imported image to a component */}
-        <Logo onClick={scrollToTop} logoSrc={logoImage} />
+        <Logo onClick={scrollToTop} />
 
         {/* Regular navbar links - visible on desktop */}
         <div className="nav-links">
