@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./ServicioCard.module.css";
 import CoolTitle from "../CoolTitle/CoolTitle";
 import { generateSchemaMarkup } from '../../utils/seo';
@@ -20,7 +20,10 @@ export default function ServicioCard({ icon, svg, titulo, descripcion, modalData
       className={`${styles.servicioCard} ${flipped ? styles.flipped : ""}`}
       tabIndex={0}
       role="button"
-      style={{ cursor: "pointer" }}
+      style={{ 
+        cursor: "pointer"
+        // ...(isMobileRef.current && cardHeight ? { height: `${cardHeight}px` } : {}) // Temporarily remove
+      }}
       onClick={() => setFlipped(f => !f)}
       onBlur={() => setFlipped(false)}
       itemScope 
@@ -35,6 +38,7 @@ export default function ServicioCard({ icon, svg, titulo, descripcion, modalData
             {svg ? svg : icon}
           </div>
           <h3 className={styles.cardTitle}>{titulo}</h3>
+          {/* <p className={styles.cardDescription} ref={descriptionRef}>{descripcion}</p> */} {/* Temporarily remove ref if not used elsewhere */}
           <p className={styles.cardDescription}>{descripcion}</p>
         </div>
         {/* Dorso */}

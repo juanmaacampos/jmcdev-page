@@ -32,7 +32,6 @@
   width: 100%;
   height: 100%;
   min-height: 260px;
-  max-height: 100%;
   backface-visibility: hidden;
   border-radius: 18px;
   display: flex;
@@ -219,5 +218,61 @@
 @media (max-width: 700px) {
   .servicioCard {
     padding: 1rem 0.5rem;
+  }
+}
+
+/* Media query for mobile screens */
+@media screen and (max-width: 768px) {
+  .servicioCard {
+    height: auto !important; /* Allow card to grow */
+    min-height: 200px; 
+    display: flex; 
+    flex-direction: column;
+  }
+
+  .cardInner {
+    height: auto !important; 
+    min-height: fit-content; 
+    display: flex;
+    flex-direction: column;
+    position: relative; 
+  }
+
+  .cardFront {
+    position: relative; 
+    height: auto !important; 
+    min-height: 0 !important; 
+    max-height: none !important; 
+    overflow: visible !important; 
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px; 
+  }
+
+  .cardBack {
+    min-height: 0 !important; 
+    max-height: none !important;
+    overflow-y: auto !important; 
+  }
+
+  .iconSvgWrapper {
+    flex-shrink: 0; /* Prevent icon from shrinking */
+  }
+
+  .cardTitle {
+    flex-shrink: 0; /* Prevent title from shrinking */
+    margin: 10px 0;
+  }
+
+  .cardDescription {
+    flex-grow: 1; /* Allow description to take up remaining space */
+    overflow-y: visible !important; /* Ensure content is not hidden */
+    white-space: normal !important; /* Allow text to wrap */
+    word-wrap: break-word !important; /* Break long words */
+    -webkit-line-clamp: unset !important; /* Remove any line clamping */
+    -webkit-box-orient: unset !important;
+    display: block !important; /* Ensure it's not an inline element restricting height */
+    height: auto !important; /* Explicitly allow auto height */
+    max-height: none !important; /* Remove any max-height restriction */
   }
 }
