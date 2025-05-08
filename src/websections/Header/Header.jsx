@@ -5,6 +5,7 @@ import styles from './Header.module.css';
 import CoolTitle from '../../components/CoolTitle/CoolTitle';
 import { FaEye, FaGithub, FaLaptop, FaListAlt } from 'react-icons/fa';
 import ParallaxMouseImage from '../../components/ParallaxMouseImage/ParallaxMouseImage';
+import headerImage from '../../assets/images/header_img.png';
 
 function Header() {
   return (
@@ -25,7 +26,7 @@ function Header() {
           
           <div className={styles.imageWrapper}>
             <ParallaxMouseImage 
-              src="/src/assets/images/header_img.png" 
+              src={headerImage} 
               alt="Desarrollo web" 
               className={styles.headerImage}
               draggable={false}
