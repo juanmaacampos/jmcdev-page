@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Logo from '../../components/Logo/Logo';
 import Button from '../../components/Button/Button';
 import { FaBriefcase, FaClipboardList, FaUser, FaEnvelope, FaHome } from 'react-icons/fa';
+// Import images using ES6 import syntax
+import logoImage from '../../assets/images/logo.png';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -39,13 +41,14 @@ const Navbar = () => {
       setIsMenuOpen(false); // Close the mobile menu after a delay
     }, 100); // Adjust the delay (in milliseconds) as needed
   };
-
+  
   const navbarClass = `navbar ${scrollDirection === 'down' ? 'hidden' : ''}`;
 
   return (
-    <nav className={navbarClass}>
+    <nav className={navbarClass} style={navbarStyle}>
       <div className="navbar-container">
-        <Logo onClick={scrollToTop} />
+        {/* Example of passing imported image to a component */}
+        <Logo onClick={scrollToTop} logoSrc={logoImage} />
 
         {/* Regular navbar links - visible on desktop */}
         <div className="nav-links">
