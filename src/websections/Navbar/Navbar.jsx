@@ -3,7 +3,7 @@ import Logo from '../../components/Logo/Logo';
 import Button from '../../components/Button/Button';
 import { FaBriefcase, FaClipboardList, FaUser, FaEnvelope, FaHome } from 'react-icons/fa';
 // Import images using ES6 import syntax
-import logoImage from '../../assets/images/logo.png';
+import logoImage from '../../assets/images/jmcdev.png';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -41,7 +41,7 @@ const Navbar = () => {
       setIsMenuOpen(false); // Close the mobile menu after a delay
     }, 100); // Adjust the delay (in milliseconds) as needed
   };
-  
+
   const navbarClass = `navbar ${scrollDirection === 'down' ? 'hidden' : ''}`;
 
   return (
