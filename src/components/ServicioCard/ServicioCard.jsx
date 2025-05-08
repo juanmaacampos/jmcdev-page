@@ -31,21 +31,8 @@ export default function ServicioCard({ icon, svg, titulo, descripcion, modalData
         {/* Frente */}
         <div className={styles.cardFront}>
           <div className={styles.iconSvgWrapper}>
-            {/* SVG/Icono con tamaño controlado */}
-            {svg
-              ? React.cloneElement(svg, {
-                  style: {
-                    width: "48px",
-                    height: "48px",
-                    maxWidth: "48px",
-                    maxHeight: "48px",
-                    minWidth: "48px",
-                    minHeight: "48px",
-                    display: "block",
-                    margin: "0 auto"
-                  }
-                })
-              : icon}
+            {/* Renderiza el SVG o el icono directamente */}
+            {svg ? svg : icon}
           </div>
           <h3 className={styles.cardTitle}>{titulo}</h3>
           <p className={styles.cardDescription}>{descripcion}</p>

@@ -3,10 +3,28 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import styles from "./Servicios.module.css";
 import CoolTitle from "../../components/CoolTitle/CoolTitle";
-import { FaLaptopCode, FaMobileAlt, FaRocket, FaServer, FaShare, FaPaintBrush, FaCode, FaTools, FaCogs } from "react-icons/fa";
+import { FaShare } from "react-icons/fa";
 import ServicioCard from "../../components/ServicioCard/ServicioCard";
 import Svg from "../../components/Svg/Svg";
 import MachineTypeTitle from "../../components/MachineTypeTitle/MachineTypeTitle";
+
+// --- IMPORTA LOS ASSETS ---
+import lottieWorld from "../../assets/images/modals_assets/world.json";
+import lottieSocial from "../../assets/images/modals_assets/social.json";
+import lottieCamera from "../../assets/images/modals_assets/camera.json";
+import lottieDesign from "../../assets/images/modals_assets/design.json";
+import lottieHosting from "../../assets/images/modals_assets/hosting.json";
+import lottieSupport from "../../assets/images/modals_assets/support.json";
+
+import imgDesarrolloWeb from "../../assets/images/modals_assets/desarrollo_web.png";
+import imgRedes from "../../assets/images/modals_assets/redes.webp";
+import imgCamera from "../../assets/images/modals_assets/camera.png";
+import imgDiseno from "../../assets/images/modals_assets/diseño.jpg";
+import imgHosting from "../../assets/images/modals_assets/hosting.webp";
+import imgMantenimiento from "../../assets/images/modals_assets/mantenimiento.png";
+
+import parallaxVideo from "../../assets/images/parallax_servicio.mp4";
+import parallaxPoster from "../../assets/images/parallax_service.png";
 
 export default function Servicios() {
   const [cursor, setCursor] = useState({ x: 0, y: 0, visible: false });
@@ -55,7 +73,7 @@ export default function Servicios() {
     >
       {/* Fondo parallax con video y máscara circular */}
       <div className={styles.parallaxBackground}>
-          <div
+        <div
           className={styles.videoRevealMask}
           style={
             cursor.visible
@@ -74,15 +92,15 @@ export default function Servicios() {
         >
           <video
             className={styles.parallaxVideo}
-            src="src/assets/images/parallax_servicio.mp4"
+            src={parallaxVideo}
             autoPlay
             loop
             muted
             playsInline
-            poster="src/assets/images/parallax_service.png"
+            poster={parallaxPoster}
           />
           <img 
-            src="src/assets/images/parallax_service.png"
+            src={parallaxPoster}
             alt="Background"
             className={styles.parallaxImage}
           />
@@ -113,13 +131,13 @@ Transformamos <CoolTitle>tu presencia digital</CoolTitle>
 
 <div data-aos="fade-up" data-aos-delay="100" className={styles.cardWrapper}>
   <ServicioCard
-    icon={<Svg route="src/assets/images/modals_assets/world.json" />}
+    svg={<Svg route={lottieWorld} />}
     titulo="Creación de páginas web que venden"
     descripcion="Diseñamos sitios modernos desde cero, optimizados para destacar en Google y convertir visitas en clientes."
     modalData={{
       title: <h1>Estar en Google es vender.</h1>,
       description: "Tenés una marca, querés crecer. Necesitás una web que aparezca entre los primeros resultados cuando te buscan.",
-      image: { src: "src/assets/images/modals_assets/desarrollo_web.png", alt: "Desarrollo Web" },
+      image: { src: imgDesarrolloWeb, alt: "Desarrollo Web" },
       tabs: [
         {
           label: "",
@@ -143,13 +161,13 @@ Transformamos <CoolTitle>tu presencia digital</CoolTitle>
 
 <div data-aos="fade-up" data-aos-delay="500" className={styles.cardWrapper}>
   <ServicioCard
-    icon={<Svg route="/src/assets/images/modals_assets/social.json" />}
+    svg={<Svg route={lottieSocial} />}
     titulo="Potenciación de Redes Sociales"
     descripcion="Impulsamos tu negocio en redes con contenido atractivo, diseño de publicaciones y estrategias para llegar a más público."
     modalData={{
       title: "Conectá tu negocio con más gente",
       description: "Haz que tu marca brille en redes sociales con contenido profesional y estrategias que aumentan tu alcance.",
-      image: { src: "src/assets/images/modals_assets/redes.webp", alt: "Redes Sociales" },
+      image: { src: imgRedes, alt: "Redes Sociales" },
       tabs: [
         {
           label: "",
@@ -172,13 +190,13 @@ Transformamos <CoolTitle>tu presencia digital</CoolTitle>
 
 <div data-aos="fade-up" data-aos-delay="200" className={styles.cardWrapper}>
   <ServicioCard
-    icon={<Svg route="src/assets/images/modals_assets/camera.json" />}
+    svg={<Svg route={lottieCamera} />}
     titulo="Servicio de Fotografía Profesional"
     descripcion="Capturamos imágenes impresionantes con cámara réflex para que tu negocio tenga fotos visualmente impactantes en tu web y redes sociales."
     modalData={{
       title: "Imágenes que hablan por tu marca",
       description: "Fotos de alta calidad que reflejan la esencia de tu negocio, ideales para tu página web y redes sociales.",
-      image: { src: "src/assets/images/modals_assets/camera.png", alt: "Fotografía Profesional" },
+      image: { src: imgCamera, alt: "Fotografía Profesional" },
       tabs: [
         {
           label: "",
@@ -202,13 +220,13 @@ Transformamos <CoolTitle>tu presencia digital</CoolTitle>
 
 <div data-aos="fade-up" data-aos-delay="600" className={styles.cardWrapper}>
   <ServicioCard
-    icon={<Svg route="src/assets/images/modals_assets/design.json" />}
+    svg={<Svg route={lottieDesign} />}
     titulo="Diseños Personalizados desde Cero"
     descripcion="Creamos interfaces únicas, adaptadas a tus necesidades. Nada de plantillas, todo hecho a medida y para que se vea bien en cualquier dispositivo."
     modalData={{
       title: "Diseño que conecta con tu público",
       description: "Diseñamos interfaces atractivas y fáciles de usar, pensadas para que tus usuarios disfruten de una experiencia simple y agradable.",
-      image: { src: "src/assets/images/modals_assets/diseño.jpg", alt: "Diseño Personalizado" },
+      image: { src: imgDiseno, alt: "Diseño Personalizado" },
       tabs: [
         {
           label: "",
@@ -232,13 +250,13 @@ Transformamos <CoolTitle>tu presencia digital</CoolTitle>
 
 <div data-aos="fade-up" data-aos-delay="400" className={styles.cardWrapper}>
   <ServicioCard
-    icon={<Svg route="src/assets/images/modals_assets/hosting.json" />}
+    svg={<Svg route={lottieHosting} />}
     titulo="Hosting y Dominio"
     descripcion="Nos encargamos del alojamiento web y el registro de tu dominio personalizado de manera fácil y sin complicaciones."
     modalData={{
       title: "Tu página siempre online.",
       description: "Te ayudamos con todo el proceso de alojamiento y registro de dominio para que tu página esté siempre disponible y fácil de encontrar.",
-      image: { src: "src/assets/images/modals_assets/hosting.webp", alt: "Hosting y Dominio" },
+      image: { src: imgHosting, alt: "Hosting y Dominio" },
       tabs: [
         {
           label: "",
@@ -261,13 +279,13 @@ Transformamos <CoolTitle>tu presencia digital</CoolTitle>
 {/* ----------------------------SOPORTE CARD------------------------------------*/}
 <div data-aos="fade-up" data-aos-delay="300" className={styles.cardWrapper}>
   <ServicioCard
-    icon={<Svg route="src/assets/images/modals_assets/support.json" />}
+    svg={<Svg route={lottieSupport} />}
     titulo="Mantenimiento y Soporte Técnico"
     descripcion="Te ofrecemos actualizaciones regulares, corrección de errores y soporte continuo para que tu página siempre esté al día."
     modalData={{
       title: "Tu página siempre a punto.",
       description: "Nos encargamos de mantener tu sitio actualizado, corregir cualquier error y brindarte soporte cuando lo necesites.",
-      image: { src: "src/assets/images/modals_assets/mantenimiento.png", alt: "Soporte Técnico" },
+      image: { src: imgMantenimiento, alt: "Soporte Técnico" },
       tabs: [
         {
           label: "",

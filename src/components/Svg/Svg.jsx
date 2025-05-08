@@ -5,6 +5,13 @@ const Svg = ({ route }) => {
   const [animationData, setAnimationData] = useState(null);
 
   useEffect(() => {
+    // Si route ya es un objeto (el JSON importado), úsalo directamente
+    if (typeof route === 'object' && route !== null) {
+      setAnimationData(route);
+      return;
+    }
+
+    // Si es una string, asumir que es una URL y hacer fetch
     const loadAnimation = async () => {
       try {
         const response = await fetch(route);
@@ -15,7 +22,7 @@ const Svg = ({ route }) => {
       }
     };
 
-    if (route) {
+    if (typeof route === 'string') {
       loadAnimation();
     }
   }, [route]);
@@ -37,19 +44,19 @@ const Svg = ({ route }) => {
       alignItems: 'center', 
       justifyContent: 'center',
       overflow: 'hidden',
-      margin: '0 auto 1rem auto' // Mantiene el centrado y el espaciado
+      margin: '0 auto 1rem auto' 
     }}>
       {animationData && (
         <Lottie
           options={defaultOptions}
-          height={72} // Ligeramente más grande que el contenedor para mejor visualización
+          height={72}
           width={72}
           style={{
-            maxWidth: '120%', // Permite que la animación sea un poco más grande que el contenedor
+            maxWidth: '120%',
             maxHeight: '120%',
             margin: 0,
             padding: 0,
-            transform: 'scale(1.1)' // Efecto de zoom suave
+            transform: 'scale(1.1)'
           }}
         />
       )}
