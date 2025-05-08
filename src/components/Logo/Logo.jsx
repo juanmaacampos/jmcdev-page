@@ -1,5 +1,5 @@
 import styles from './Logo.module.css';
-import logoImage from '../../../assets/images/jmcdev.png';
+import logoImage from '../../assets/images/jmcdev.png';
 
 const Logo = ({ onClick }) => {
   return (
