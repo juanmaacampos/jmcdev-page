@@ -5,6 +5,8 @@ import { generateSchemaMarkup } from '../../utils/seo';
 
 export default function ServicioCard({ icon, svg, titulo, descripcion, modalData }) {
   const [flipped, setFlipped] = useState(false);
+  const cardBackRef = useRef(null);
+  const [isCardBackScrolled, setIsCardBackScrolled] = useState(false);
 
   const serviceSchema = generateSchemaMarkup('Service', {
     name: titulo,
@@ -15,6 +17,32 @@ export default function ServicioCard({ icon, svg, titulo, descripcion, modalData
     }
   });
 
+  useEffect(() => {
+    const cardBackEl = cardBackRef.current;
+    if (!cardBackEl || !flipped) {
+      // Reset scroll state if card is not flipped or ref is not available
+      setIsCardBackScrolled(false);
+      if (cardBackEl) cardBackEl.scrollTop = 0; // Reset scroll position when card is flipped back
+      return;
+    }
+
+    const handleScroll = () => {
+      if (cardBackEl.scrollTop > 10) { // Threshold of 10px
+        setIsCardBackScrolled(true);
+      } else {
+        setIsCardBackScrolled(false);
+      }
+    };
+
+    cardBackEl.addEventListener('scroll', handleScroll);
+    // Initial check in case it's already scrolled (e.g. due to fast re-render)
+    handleScroll(); 
+
+    return () => {
+      cardBackEl.removeEventListener('scroll', handleScroll);
+    };
+  }, [flipped]); // Re-run when 'flipped' state changes
+
   return (
     <article 
       className={`${styles.servicioCard} ${flipped ? styles.flipped : ""}`}
@@ -24,8 +52,16 @@ export default function ServicioCard({ icon, svg, titulo, descripcion, modalData
         cursor: "pointer"
         // ...(isMobileRef.current && cardHeight ? { height: `${cardHeight}px` } : {}) // Temporarily remove
       }}
-      onClick={() => setFlipped(f => !f)}
-      onBlur={() => setFlipped(false)}
+      onClick={() => {
+        setFlipped(f => !f);
+        if (!flipped && cardBackRef.current) { // If flipping to back
+          cardBackRef.current.scrollTop = 0; // Reset scroll
+          setIsCardBackScrolled(false); // Reset scrolled state
+        }
+      }}
+      onBlur={() => {
+        setFlipped(false); // Make the card flip back when it loses focus
+      }}
       itemScope 
       itemType="https://schema.org/Service"
     >
@@ -42,7 +78,10 @@ export default function ServicioCard({ icon, svg, titulo, descripcion, modalData
           <p className={styles.cardDescription}>{descripcion}</p>
         </div>
         {/* Dorso */}
-        <div className={styles.cardBack}>
+        <div 
+          className={`${styles.cardBack} ${isCardBackScrolled ? styles.isScrolled : ''}`}
+          ref={cardBackRef}
+        >
           {/* No renderizar icono aquí */}
           {modalData?.image && (
             <img src={modalData.image.src} alt={modalData.image.alt} className={styles.coverImage} />

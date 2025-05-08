@@ -1,26 +1,26 @@
 .servicioCard {
   perspective: 1200px;
   width: 100%;
-  min-height: 260px;
+  min-height: 260px; /* Default min-height */
   background: none;
   border-radius: 18px;
   box-shadow: 0 4px 24px #0004;
   transition: box-shadow 0.2s;
   position: relative;
-  height: 100%;
+  height: 100%; /* Default height */
   display: flex;
   flex-direction: column;
 }
 
 .cardInner {
   width: 100%;
-  height: 100%;
-  min-height: 260px;
+  height: 100%; /* Default height */
+  min-height: 260px; /* Default min-height */
   transition: transform 0.6s cubic-bezier(.4,2,.6,1);
   transform-style: preserve-3d;
   position: relative;
-  flex: 1 1 auto;
-  display: flex;
+  flex: 1 1 auto; /* For when .servicioCard is a flex container */
+  display: flex; /* Default display */
 }
 
 .flipped .cardInner {
@@ -31,7 +31,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  min-height: 260px;
+  min-height: 260px; /* Default min-height for faces */
   backface-visibility: hidden;
   border-radius: 18px;
   display: flex;
@@ -44,7 +44,7 @@
   box-sizing: border-box;
   top: 0;
   left: 0;
-  overflow: hidden;
+  overflow: hidden; /* Default overflow */
 }
 
 .cardFront {
@@ -221,38 +221,113 @@
   }
 }
 
+/* Define the bobbing animation */
+@keyframes bobbingArrow {
+  0%, 100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  50% {
+    transform: translateY(5px) translateX(-50%);
+  }
+}
+
 /* Media query for mobile screens */
 @media screen and (max-width: 768px) {
   .servicioCard {
-    height: auto !important; /* Allow card to grow */
-    min-height: 200px; 
-    display: flex; 
-    flex-direction: column;
+    height: auto !important; /* Override default height */
+    min-height: 0 !important; /* Override default min-height */
+    /* display: flex; flex-direction: column; are fine */
   }
 
   .cardInner {
-    height: auto !important; 
-    min-height: fit-content; 
-    display: flex;
-    flex-direction: column;
-    position: relative; 
+    width: 100%; 
+    height: auto !important; /* Override default height */
+    min-height: 0 !important; /* Override default min-height */
+    position: relative; /* Already relative, ensure it stays */
+    display: block; /* Override display:flex from general styles */
+    /* transform-style and transition are inherited */
   }
 
   .cardFront {
-    position: relative; 
+    position: relative; /* Key for .cardInner to get height from this */
+    width: 100%; 
     height: auto !important; 
-    min-height: 0 !important; 
+    min-height: 0 !important; /* Override face min-height */
     max-height: none !important; 
-    overflow: visible !important; 
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 20px; 
+    overflow: visible !important; /* Show all content */
+    /* display:flex and other styling for content within cardFront are inherited */
+    /* padding is inherited, adjust specific padding for cue */
+    padding-bottom: 30px; 
+    /* z-index is not strictly needed if it's relative and cardBack is absolute */
+    /* background, color, border-radius, box-sizing are inherited */
+  }
+
+  /* New Click/Flip cue for card front */
+  .cardFront::after {
+    content: '↻'; 
+    position: absolute;
+    bottom: 8px; 
+    right: 12px; 
+    font-size: 1.6rem; 
+    line-height: 1;
+    color: rgba(163, 255, 229, 0.6); 
+    z-index: 5; 
+    pointer-events: none;
+    transform: rotate(0deg); 
   }
 
   .cardBack {
-    min-height: 0 !important; 
-    max-height: none !important;
+    position: absolute; /* Ensure it's absolute */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100% !important; /* Fill the .cardInner, which now has auto height from .cardFront */
+    min-height: 0 !important; /* Override face min-height */
+    max-height: none !important; 
     overflow-y: auto !important; 
+    /* transform: rotateY(180deg) is inherited for the flipped state */
+    /* backface-visibility is inherited */
+    /* display:flex and other styling for content within cardBack are inherited */
+    /* padding is inherited, adjust specific padding for cues */
+    padding-bottom: 40px; 
+    /* background, color, border-radius, box-sizing, z-index are inherited */
+  }
+
+  /* Scroll cue gradient for card back */
+  .cardBack::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px; /* Made gradient taller */
+    background: linear-gradient(to bottom, transparent, #18191a 95%); /* More pronounced fade */
+    pointer-events: none; 
+    z-index: 4; 
+    border-bottom-left-radius: 18px; 
+    border-bottom-right-radius: 18px;
+  }
+
+  /* Scroll cue arrow for card back */
+  .cardBack::before { 
+    content: '▼'; /* Downwards black arrow */
+    position: absolute;
+    bottom: 5px; /* Position at the very bottom */
+    left: 50%;
+    /* transform: translateX(-50%); Combined with animation */
+    font-size: 0.8rem; /* Small arrow */
+    color: rgba(163, 255, 229, 0.5); /* Themed color, semi-transparent */
+    z-index: 5; /* Above the gradient */
+    pointer-events: none;
+    animation: bobbingArrow 1.5s infinite ease-in-out;
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+  }
+
+  /* Style to hide the arrow when cardBack has .isScrolled class */
+  .cardBack.isScrolled::before {
+    opacity: 0;
+    animation-play-state: paused; /* Optional: stop animation when hidden */
   }
 
   .iconSvgWrapper {
