@@ -1,0 +1,33 @@
+.componentWrapper {
+  overflow: hidden; 
+  position: relative;
+  height: 200vh; /* For 2 panels (Proceso, Planes), this reserves space in document flow */
+}
+
+.horizontalContainer {
+  display: flex;
+  width: 200vw; /* For 2 panels */
+  /* The height of the visible pinned area during horizontal scroll */
+  height: 100vh; 
+  will-change: transform; 
+}
+
+.panel {
+  width: 100vw; 
+  height: 100vh; /* Each panel fills the height of horizontalContainer */
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  /* Optional: for debugging panel boundaries */
+  /* border: 1px dashed lime; */
+}
+
+/* This rule targets the direct child component within each panel (e.g., Proceso, Planes) */
+.panel > :first-child { 
+  width: 100%;
+  height: 100%; /* The component (Proceso) will be constrained to the panel's 100vh height */
+  overflow-y: auto; /* Crucial: Adds a vertical scrollbar if Proceso's content is taller than 100vh */
+  box-sizing: border-box; /* Ensures padding/border don't add to the 100% height/width */
+  /* Optional: for debugging bounds of Proceso/Planes component itself */
+  /* border: 1px solid cyan; */
+}

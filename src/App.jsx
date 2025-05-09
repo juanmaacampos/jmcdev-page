@@ -7,8 +7,9 @@ import './App.css';
 // import Svg from "./components/Svg/Svg"; // Not used in this simplified version
 import Servicios from "./websections/Servicios/Servicios";
 // import VideoSection from "./websections/VideoSection/VideoSection"; // No longer directly used here
-import Proceso from "./websections/Proceso/Proceso";
-import Planes from "./websections/Planes/Planes";
+// Proceso and Planes imports will be handled by HorizontalScrollSection, but keep them if used elsewhere or for clarity
+// import Proceso from "./websections/Proceso/Proceso"; // No longer directly imported if only used in HorizontalScrollSection
+// import Planes from "./websections/Planes/Planes";   // No longer directly imported if only used in HorizontalScrollSection
 import Portafolio from "./websections/Portafolio/Portafolio";
 import Testimonios from "./websections/Testimonios/Testimonios";
 import Contacto from "./websections/Contacto/Contacto";
@@ -16,6 +17,7 @@ import Contacto from "./websections/Contacto/Contacto";
 // gsap, ScrollTrigger, Lenis imports removed
 import VideoMaskEffect from "./components/VideoMaskEffect/VideoMaskEffect";
 import PageWrapper from "./components/PageWrapper/PageWrapper"; // Import the new component
+import HorizontalScrollSection from "./components/HorizontalScrollSection/HorizontalScrollSection"; // Import the new component
 
 // gsap.registerPlugin(ScrollTrigger); // Moved to PageWrapper
 
@@ -39,8 +41,8 @@ function App() {
             videoOverlayRef={videoOverlayRef} 
             contentVisible={contentIsVisible} 
           />
-          <Proceso contentVisible={contentIsVisible} /> {/* Pass contentIsVisible here */}
-          <Planes />
+          {/* Replace Proceso and Planes with HorizontalScrollSection */}
+          <HorizontalScrollSection contentVisible={contentIsVisible} />
           <Portafolio />
           <Testimonios />
           <Contacto />
