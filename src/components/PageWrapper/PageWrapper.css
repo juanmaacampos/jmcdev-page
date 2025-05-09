@@ -1,0 +1,11 @@
+.contenido {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0s linear 0.5s; /* Adjust transition as needed */
+}
+
+.contenido.visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease-in-out; /* Adjust transition as needed */
+}

@@ -1,0 +1,196 @@
+.pasosGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 2rem 0;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+/* The central vertical timeline bar */
+.pasosGrid::before {
+  content: "";
+  position: absolute;
+  top: 40px; /* Adjusted for dot radius */
+  bottom: 40px; /* Adjusted for dot radius */
+  left: 50%;
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: top;
+  width: 4px;
+  background-color: #A3FFE5;
+  border-radius: 2px;
+  z-index: 0;
+  transition: transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+}
+
+.pasosGrid.timelineActive::before {
+  transform: translateX(-50%) scaleY(1);
+}
+
+.pasoItemContainer {
+  position: relative;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.pasoItemContainer:last-child {
+  margin-bottom: 0;
+}
+
+.pasoCard {
+  background: linear-gradient(145deg, #2a2a2a, #1e1e1e); /* Subtle gradient background */
+  border-radius: 12px; /* Slightly softer radius */
+  padding: 1.8rem 1.5rem; /* Increased padding */
+  width: calc(50% - 40px); /* Adjusted width slightly for more gap if needed, or keep as is */
+  color: #e0e0e0; /* Lighter text color */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Softer, layered shadow */
+  position: relative;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-out; /* Ensures smooth scaling and translation */
+  text-align: left;
+  overflow: visible; /* Allow ::before to be slightly outside if needed, or keep hidden if preferred */
+  border: none; /* No actual border on the card, ::before will create it */
+}
+
+.pasoCard:hover {
+  transform: translateY(-6px) scale(1.03); /* Smooth scaling and translation on hover */
+  box-shadow: 0 8px 25px rgba(163, 255, 229, 0.15), 0 4px 10px rgba(163, 255, 229, 0.1); /* Enhanced shadow on hover with accent color */
+}
+
+.borderEffectSpan {}
+.borderEffectSpanLeft {}
+
+/* --- New Conic Gradient Animated Border --- */
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.pasoCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0; /* Cover the exact card area */
+  border-radius: inherit; /* Match the card's border-radius */
+  padding: 2px; /* This will be the thickness of our "border" */
+  background: conic-gradient(
+    from var(--angle),
+    transparent 0%, 
+    transparent 95%, 
+    #A3FFE5 95%,    
+    #A3FFE5 100%,   
+    transparent 100%
+  );
+  
+  /* Attempt neon glow using filter: drop-shadow() */
+  filter: drop-shadow(0 0 3px #A3FFE5) drop-shadow(0 0 6px #A3FFE5);
+  /* Removed direct box-shadow: 0 0 5px #A3FFE5, 0 0 10px #A3FFE5, 0 0 15px #A3FFE5; */
+
+  animation: spinBorder 2s linear infinite; /* Slower animation: 1.2s to 2s */
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease-out;
+  
+  /* Mask the center of the ::before element to create a border effect */
+  mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+  mask-clip: content-box, border-box; /* Show border, hide content area */
+  mask-composite: exclude; /* Subtract the content area from the border area */
+  -webkit-mask-composite: destination-out; /* Safari/older Chrome compatibility */
+}
+
+.pasoCard:hover::before {
+  opacity: 1; /* Show on hover */
+}
+
+@keyframes spinBorder {
+  0% { --angle: 0deg; }
+  100% { --angle: 360deg; }
+}
+
+/* The .pasoCard::after is for the TIMELINE DOT - this should remain untouched and work correctly */
+.pasoCard::after { 
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #151617; /* Default background for middle dots */
+  border: 4px solid #A3FFE5;
+  z-index: 2;
+}
+
+/* Style for the first dot to be filled (already present) */
+.pasoItemContainer:first-child .pasoCard::after {
+  background-color: #A3FFE5; /* Fill color same as border/timeline */
+}
+
+/* Style for the last dot to be filled */
+.pasoItemContainer:last-child .pasoCard::after {
+  background-color: #A3FFE5; /* Fill color same as border/timeline */
+}
+
+.pasoTituloContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.pasoIcon {
+  margin-right: 0.75rem;
+  color: #A3FFE5;
+  display: flex;
+  align-items: center;
+}
+
+/* ODD items (1st, 3rd, ...) - Card on the LEFT */
+.pasoItemContainer:nth-child(odd) .pasoCard {
+  margin-left: 0;
+  margin-right: calc(50% + 30px);
+}
+
+.pasoItemContainer:nth-child(odd) .pasoCard::after {
+  right: calc(-1 * (30px + (20px / 2)));
+}
+
+/* EVEN items (2nd, 4th, ...) - Card on the RIGHT */
+.pasoItemContainer:nth-child(even) .pasoCard {
+  margin-left: calc(50% + 30px);
+  margin-right: 0;
+}
+
+.pasoItemContainer:nth-child(even) .pasoCard::after {
+  left: calc(-1 * (30px + (20px / 2)));
+}
+
+h4 {
+  color: #A3FFE5;
+  margin-bottom: 0rem;
+  font-size: 1.15rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .pasosGrid {
+    padding: 2rem 20px;
+  }
+  .pasosGrid::before {
+    left: 20px;
+    transform: translateX(0) scaleY(0);
+  }
+  .pasosGrid.timelineActive::before {
+    transform: translateX(0) scaleY(1);
+  }
+  .pasoCard {
+    width: calc(100% - 45px); /* Adjusted for potentially more padding/gap */
+    margin-left: 45px !important; /* Adjusted for potentially more padding/gap */
+    margin-right: 0 !important;
+    padding: 1.5rem 1.2rem; /* Slightly adjust padding for mobile if needed */
+  }
+  .pasoItemContainer .pasoCard::after {
+    left: calc(-1 * (20px + (20px / 2)));
+    right: auto;
+  }
+}

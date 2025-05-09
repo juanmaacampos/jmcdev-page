@@ -17,7 +17,11 @@ const VideoSection = forwardRef(({ overlayRef }, sectionRef) => {
         type="video/mp4"
       />
       {/* Attach the passed overlayRef here */}
-      <div ref={overlayRef} className={styles.videoOverlay}>
+      <div
+        ref={overlayRef}
+        className={styles.videoOverlay}
+        style={{ willChange: 'transform, opacity' }}
+      >
         {/* This overlay will be the target for the mask animation */}
       </div>
     </section>
