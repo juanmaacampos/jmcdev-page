@@ -79,7 +79,7 @@ export default function ServicioCard({ icon, svg, titulo, descripcion, modalData
         </div>
         {/* Dorso */}
         <div 
-          className={`${styles.cardBack} ${isCardBackScrolled ? styles.isScrolled : ''}`}
+          className={`${styles.cardBack} ${isCardBackScrolled ? styles.isScrolled : ''} card-scrollable-content`}
           ref={cardBackRef}
         >
           {/* No renderizar icono aquí */}

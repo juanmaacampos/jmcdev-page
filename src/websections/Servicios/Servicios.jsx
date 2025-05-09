@@ -30,6 +30,7 @@ export default function Servicios() {
   const [cursor, setCursor] = useState({ x: 0, y: 0, visible: false });
   const [maskActive, setMaskActive] = useState(false); // Nuevo estado
   const sectionRef = useRef(null);
+  const gridRef = useRef(null); // Ref for the services grid
 
   useEffect(() => {
     AOS.init({
@@ -64,6 +65,39 @@ export default function Servicios() {
       }
     };
   }, []);
+
+  useEffect(() => {
+    const gridElement = gridRef.current;
+
+    const handleGridScroll = (event) => {
+      const scrollableElement = event.target.closest('.card-scrollable-content');
+
+      if (!scrollableElement) {
+        return; 
+      }
+
+      const { scrollHeight, clientHeight } = scrollableElement;
+
+      // If the element is scrollable (its content is taller than its visible area),
+      // then always stop the event from bubbling up to the page.
+      // The browser will handle the internal scroll of the card element itself.
+      if (scrollHeight > clientHeight) {
+        event.stopPropagation();
+      }
+      // If scrollHeight <= clientHeight, the element isn't scrollable,
+      // so we don't stop propagation, allowing normal page scroll if desired.
+    };
+
+    if (gridElement) {
+      gridElement.addEventListener('wheel', handleGridScroll, { passive: false });
+    }
+
+    return () => {
+      if (gridElement) {
+        gridElement.removeEventListener('wheel', handleGridScroll);
+      }
+    };
+  }, []); // Empty dependency array means this effect runs once after mount and cleans up on unmount.
 
   return (
     <section
@@ -123,9 +157,10 @@ export default function Servicios() {
 Transformamos <CoolTitle>tu presencia digital</CoolTitle> 
 </CoolTitle>
 
+
       {/* Cards y sus Modals ----------------------------------------------------------------------------*/}
 
-      <div className={styles.serviciosGrid}>
+      <div className={styles.serviciosGrid} ref={gridRef}>
 
     {/*  -----------------------DESARROLLO WEB CARD------------------------------------*/}
 

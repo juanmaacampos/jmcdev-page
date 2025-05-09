@@ -4,6 +4,7 @@
   position: relative;
   overflow: hidden; /* Ensures video doesn't spill out */
   background-color: #000; /* Fallback if video doesn't load */
+  pointer-events: none; /* Allow clicks and scrolls to pass through the container */
 }
 
 .videoBackground {
@@ -15,6 +16,7 @@
   object-fit: cover;
   transform: translate(-50%, -50%);
   z-index: 1;
+  pointer-events: none; /* Ensure video itself doesn't capture events */
 }
 
 .videoOverlay {
@@ -25,5 +27,6 @@
   height: 100%;
   background-color: #000000; /* Initial color of the overlay, will be masked */
   z-index: 2; /* Above the video, below any content on top of overlay */
+  pointer-events: none; /* Ensure overlay doesn't capture events */
   /* Mask properties will be applied by GSAP via App.jsx */
 }

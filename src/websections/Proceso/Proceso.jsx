@@ -35,7 +35,12 @@ const pasos = [
 export default function Proceso() {
   return (
     <section className={styles.procesoSection} id="proceso">
-      <CoolTitle animation="fade-up" className={styles.titulo} data-aos="fade-up">
+      <CoolTitle 
+        animation="fade-up" 
+        className={styles.titulo} 
+        data-aos="fade-up"
+        data-aos-offset="150" // Title animates when it's 150px from viewport bottom
+      >
         ¿Cómo trabajamos?
       </CoolTitle>
       <div className={styles.pasosGrid}>
@@ -45,7 +50,7 @@ export default function Proceso() {
               className={styles.pasoCard}
               data-aos={i % 2 === 0 ? "fade-right" : "fade-left"} // Odd items (0,2..) fade right, Even items (1,3..) fade left
               data-aos-delay={i * 150} // Slightly increase delay for better effect
-              data-aos-offset="150" 
+              data-aos-offset="100" // Cards animate when they are 100px from viewport bottom
             >
               <div className={styles.pasoTituloContainer}>
                 {/* Render the icon here. Replace p.icon with your actual icon component if it's not a string */}

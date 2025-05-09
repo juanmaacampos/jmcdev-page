@@ -1,5 +1,5 @@
 .procesoSection {
-  padding: 4rem 0 3rem 0;
+  padding-bottom: 3rem;
   background: #000000; /* Restored to likely original color */
   text-align: center;
   overflow-x: hidden; /* Prevent horizontal scroll from AOS animations */

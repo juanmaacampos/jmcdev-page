@@ -3,8 +3,8 @@
   color: #fff; /* Asegura texto blanco en la sección */
   padding: 2rem 0 4rem 0;
   text-align: center;
-  position: relative;
-  overflow: hidden;
+  position: relative; /* Ensures z-index is effective */
+  /* overflow: hidden; */ /* Potentially problematic for nested scroll with wheel on desktop, removed for desktop below */
 }
 
 .titulo {
@@ -93,9 +93,16 @@
   left: 0;
   width: 100vw;
   height: 100%;
-  z-index: 2;
+  z-index: 2; /* z-index within serviciosSection, ensure it's above parallaxBackground if needed */
   pointer-events: none;
   transition: opacity 0.2s;
+}
+
+@media (min-width: 769px) { /* Apply only to desktop-like screens */
+  .serviciosSection {
+    z-index: 10; /* Attempt to ensure this section is above other page elements for event handling */
+    overflow: visible; /* Explicitly allow overflow, overriding the general rule if it was there */
+  }
 }
 
 @media (max-width: 1024px) {
@@ -105,6 +112,9 @@
 }
 
 @media (max-width: 900px) {
+  .serviciosSection { /* Add overflow:hidden back for mobile if it was intended */
+    overflow: hidden;
+  }
   .videoRevealMask {
     -webkit-mask-image: none !important;
     mask-image: none !important;
