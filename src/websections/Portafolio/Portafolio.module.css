@@ -1,16 +1,149 @@
 .portafolioSection {
-  padding: 4rem 0 3rem 0;
+  padding: 4rem 0 4rem 0; 
   background: #151617;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .titulo {
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
-.grid {
+.splideContainer { /* Renamed from swiperContainer */
+  max-width: 100%; 
+  padding: 0; 
+  margin: 0 auto 3rem auto; 
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mySplide { /* This class can be used to style the Splide root element if needed */
+  width: 100%;
+  padding-top: 20px; 
+  padding-bottom: 80px; /* Space for pagination */
+  /* visibility: hidden; */ /* Splide recommends this for FOUC prevention, then JS makes it visible */
+}
+
+/* Styles for individual slide items */
+.splideSlideItem { /* Renamed from swiperSlide */
+  /* width: 320px;  <-- Elimina o comenta esta línea */
+  height: auto; 
+  display: flex;
+  justify-content: center;
+  align-items: stretch; 
+  box-sizing: border-box;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0.7; 
+  transform: scale(0.92); 
+}
+
+.splideSlideItem.is-active { /* Splide uses .is-active for the current slide */
+  opacity: 1;
+  transform: scale(1); 
+}
+
+.splideSlideItem .proyectoCard { 
+  width: 100%; 
+  height: 100%; 
+}
+
+.customCardWidth {
+  width: 420px; /* Ajusta el ancho según tu preferencia */
+  max-width: 90vw;
+}
+
+.splideControls {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.splideArrow {
+  background: #181a1b;
+  color: #6ee7b7;
+  border: 2px solid #6ee7b7;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.splideArrow:hover {
+  background: #6ee7b7;
+  color: #181a1b;
+  border-color: #181a1b;
+}
+
+.splideArrowPrev {
+  /* Puedes agregar estilos específicos si lo deseas */
+}
+
+.splideArrowNext {
+  /* Puedes agregar estilos específicos si lo deseas */
+}
+
+/* Remove all :global Swiper styles */
+/* :global(.swiper-button-next), ...etc. */
+/* :global(.swiper-pagination-bullet), ...etc. */
+
+/* 
+  To customize Splide arrows and pagination, you'd target Splide's own classes globally.
+  For example:
+  :global(.splide__arrow) { ... }
+  :global(.splide__pagination__page) { ... }
+  :global(.splide__pagination__page.is-active) { ... }
+  
+  Splide's default theme is quite minimal. You might want to import a theme or add custom styles.
+  e.g. import '@splidejs/react-splide/css/skyblue'; // Skyblue theme
+  or import '@splidejs/react-splide/css/sea-green'; // Sea Green theme
+*/
+
+@media (max-width: 768px) {
+  .portafolioSection {
+    padding: 3rem 0 2rem 0;
+  }
+  .titulo {
+    margin-bottom: 2rem;
+  }
+  .splideContainer { /* Renamed */
+    padding: 0 10px; 
+  }
+  .mySplide {
+    padding-bottom: 40px; 
+  }
+  .splideSlideItem { /* Renamed */
+    width: 280px; 
+    transform: scale(0.9); 
+    opacity: 0.65;
+  }
+  .splideSlideItem.is-active { /* Renamed */
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Adjust Splide arrow/pagination size via global styles if needed */
+  .splideSlideItem { /* Renamed */
+    width: 260px; 
+    transform: scale(0.85); 
+    opacity: 0.6;
+  }
+   .splideSlideItem.is-active { /* Renamed */
+    transform: scale(0.95); 
+    opacity: 1;
+  }
+  .mySplide {
+    padding-top: 20px;
+    padding-bottom: 70px; 
+  }
 }

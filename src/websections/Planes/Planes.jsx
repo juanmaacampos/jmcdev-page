@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "./Planes.module.css";
 import CoolTitle from "../../components/CoolTitle/CoolTitle";
-import Button from "../../components/Button/Button";
+// Button import is no longer directly needed here if Card3D handles its own button
+import ParticleBackground from "../../components/ParticleBackground/ParticleBackground";
+import Card3D from "../../components/PlanesCard3d/3dCard"; // Import the new 3D card
 
 const planes = [
   {
@@ -40,23 +42,15 @@ const planes = [
 export default function Planes() {
   return (
     <section className={styles.planesSection} id="planes">
+      <ParticleBackground />
       <CoolTitle className={styles.titulo}>Planes para cada necesidad</CoolTitle>
       <div className={styles.grid}>
         {planes.map((plan, i) => (
-          <div
-            className={`${styles.planCard} ${plan.destacado ? styles.destacado : ""}`}
+          <Card3D
             key={i}
-          >
-            <h3>{plan.nombre}</h3>
-            <div className={styles.precio}>{plan.precio}</div>
-            <p className={styles.descripcion}>{plan.descripcion}</p>
-            <ul>
-              {plan.beneficios.map((b, j) => (
-                <li key={j}>{b}</li>
-              ))}
-            </ul>
-            <Button label="Me interesa" effect="neon" size="medium" to="#contacto" />
-          </div>
+            plan={plan}
+            destacado={plan.destacado}
+          />
         ))}
       </div>
     </section>

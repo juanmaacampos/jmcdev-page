@@ -19,6 +19,8 @@ Sitio web profesional para servicios de desarrollo web, realizado en React con V
   - [LoaderDiagonal](#loaderdiagonal)
   - [Logo](#logo)
   - [ParallaxMouseImage](#parallaxmouseimage)
+  - [ProyectoCard](#proyectocard)
+  - [ParticleBackground](#particlebackground)
 - [Secciones Principales](#secciones-principales)
   - [Navbar](#navbar)
   - [Header](#header)
@@ -32,6 +34,10 @@ Sitio web profesional para servicios de desarrollo web, realizado en React con V
 - [Estilos y Responsividad](#estilos-y-responsividad)
 - [Animaciones](#animaciones)
 - [Recursos y Assets](#recursos-y-assets)
+- [Bibliotecas NPM Utilizadas](#bibliotecas-npm-utilizadas)
+- [Cómo Usar el Proyecto](#cómo-usar-el-proyecto)
+- [Ejemplo de Uso en App.jsx](#ejemplo-de-uso-en-appjsx)
+- [Notas Finales](#notas-finales)
 
 ---
 
@@ -47,6 +53,9 @@ src/
     Loader/
     Logo/
     MachineTypeTitle/
+    ParallaxMouseImage/
+    ParticleBackground/
+    ProyectoCard/
     ServicioCard/
     Svg/
   websections/
@@ -307,6 +316,46 @@ Componente que aplica un efecto de parallax al movimiento del mouse sobre una im
 
 ---
 
+### ProyectoCard
+
+**Función:**  
+Tarjeta para mostrar un proyecto en el portafolio.
+
+**Props:**
+- `imagen`: string. Ruta de la imagen del proyecto.
+- `titulo`: string. Título del proyecto.
+- `descripcion`: string. Breve descripción del proyecto.
+- `tecnologias`: array de string. Tecnologías utilizadas.
+- `projectLink`: string. Enlace al proyecto desplegado o repositorio.
+
+**Uso:**
+```jsx
+<ProyectoCard
+  imagen="ruta/a/imagen.jpg"
+  titulo="Nombre del Proyecto"
+  descripcion="Este es un proyecto increíble."
+  tecnologias={['React', 'Node.js', 'CSS']}
+  projectLink="https://ejemplo.com/proyecto"
+/>
+```
+
+---
+
+### ParticleBackground
+
+**Función:**  
+Componente para renderizar un fondo de partículas animadas. Usualmente configurado para ser sutil y no interferir con el contenido principal.
+
+**Props:**
+- `className`: string. Clases CSS adicionales para el contenedor del canvas de partículas.
+
+**Uso:**
+```jsx
+<ParticleBackground className={styles.particleCanvas} />
+```
+
+---
+
 ## Secciones Principales
 
 ### Navbar
@@ -412,6 +461,67 @@ Componente que aplica un efecto de parallax al movimiento del mouse sobre una im
 - **Videos**: `/src/assets/videos/`
 - **Lottie JSON**: Animaciones para iconos y cards.
 - **Fuentes**: Google Fonts (`Geologica`, `DM Sans`, `Orbitron`, etc).
+
+---
+
+## Bibliotecas NPM Utilizadas
+
+Este proyecto utiliza varias bibliotecas NPM para su funcionamiento y características:
+
+- **React (`react`)**: Biblioteca principal para construir la interfaz de usuario.
+- **React DOM (`react-dom`)**: Para renderizar React en el DOM.
+- **React Router DOM (`react-router-dom`)**: Para la gestión de rutas y navegación en la aplicación.
+- **GSAP (`gsap`)**: Para animaciones avanzadas y ScrollTrigger.
+- **Lenis (`@studio-freight/lenis`)**: Para un scrolling suave y personalizable.
+- **SplideJS (`@splidejs/react-splide`)**: Para carruseles/sliders, utilizado en la sección de Portafolio.
+- **AOS (`aos`)**: Para animaciones al hacer scroll (Animate On Scroll).
+- **Lottie React (`lottie-react`)**: Para renderizar animaciones Lottie (archivos JSON).
+- **React Icons (`react-icons`)**: Para una amplia variedad de iconos SVG.
+- **Vite (`vite`)**: Herramienta de frontend para un desarrollo rápido y optimizado.
+- **Prop Types (`prop-types`)**: Para la validación de tipos de las props en los componentes React.
+
+---
+
+## Cómo Usar el Proyecto
+
+Sigue estos pasos para configurar y ejecutar el proyecto en tu entorno local:
+
+1.  **Clonar el Repositorio:**
+    ```bash
+    git clone <URL_DEL_REPOSITORIO_DEL_PROYECTO>
+    cd nombre-del-directorio-del-proyecto
+    ```
+
+2.  **Instalar Dependencias:**
+    Asegúrate de tener Node.js y npm (o Yarn) instalados.
+    ```bash
+    npm install
+    ```
+    O si usas Yarn:
+    ```bash
+    yarn install
+    ```
+
+3.  **Ejecutar el Servidor de Desarrollo:**
+    Esto iniciará la aplicación en modo de desarrollo, generalmente en `http://localhost:5173` (Vite por defecto).
+    ```bash
+    npm run dev
+    ```
+    O si usas Yarn:
+    ```bash
+    yarn dev
+    ```
+
+4.  **Construir para Producción:**
+    Para generar una versión optimizada para producción:
+    ```bash
+    npm run build
+    ```
+    O si usas Yarn:
+    ```bash
+    yarn build
+    ```
+    Los archivos de la compilación se encontrarán en el directorio `dist/`.
 
 ---
 

@@ -1,18 +1,25 @@
 .planesSection {
-  padding: 4rem 0 3rem 0;
-  background: #151617;
+  padding: 80px 20px;
   text-align: center;
+  /* background: #151617; */ /* Eliminado para que se vea el fondo de ParticleBackground */
+  position: relative; /* Necesario para contener el ParticleBackground */
+  overflow: hidden;   /* Para asegurar que las partículas no se desborden visualmente */
 }
 
 .titulo {
-  margin-bottom: 2.5rem;
+  margin-bottom: 50px;
+  position: relative; /* Para que se muestre sobre el ParticleBackground */
+  z-index: 1;         /* Para que se muestre sobre el ParticleBackground */
 }
 
 .grid {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative; /* Para que se muestre sobre el ParticleBackground */
+  z-index: 1;         /* Para que se muestre sobre el ParticleBackground */
 }
 
 .planCard {

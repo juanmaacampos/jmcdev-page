@@ -6,11 +6,11 @@
   padding-right: 2rem;
   display: flex;
   align-items: center;
-  background: linear-gradient(
+  /* background: linear-gradient(
     135deg,
     rgba(17, 17, 17, 0.98) 0%,
     rgba(23, 23, 23, 0.98) 100%
-  );
+  ); */ /* Removed to let ParticleBackground be the sole background */
   position: relative;
   overflow: hidden;
   /* Elimina cualquier margin-top negativo */
@@ -34,6 +34,8 @@
 .container {
   width: 100%;
   max-width: 1400px;
+  position: relative; /* Ensure container can be layered */
+  z-index: 1; /* Place container content above ParticleBackground */
   margin: 0 auto;
 }
 

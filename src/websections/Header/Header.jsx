@@ -6,22 +6,25 @@ import CoolTitle from '../../components/CoolTitle/CoolTitle';
 import { FaEye, FaGithub, FaLaptop, FaListAlt } from 'react-icons/fa';
 import ParallaxMouseImage from '../../components/ParallaxMouseImage/ParallaxMouseImage';
 import headerImage from '../../assets/images/header_img.png';
+import ParticleBackground from '../../components/ParticleBackground/ParticleBackground'; // Import ParticleBackground
 
 function Header() {
   return (
     <header className={styles.header}>
+      <ParticleBackground id="header-particles" /> {/* Use ParticleBackground */}
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.textContent}>
-            <CoolTitle>Creamos Experiencias Digitales que</CoolTitle>
-            <MachineTypeTitle
-              words={['conectan', 'sorprenden', 'venden', 'posicionan', 'trascienden', 'destacan', 'atraen']}
-              color="#B687F7" // o "linear-gradient(45deg, #fff 30%, #B687F7 100%)"
-            />
-            
-            <p className={styles.description}>
-            <strong>Diseñamos sitios web únicos y optimizamos redes sociales usando fotografías profesionales</strong> para conectar con tu audiencia y crecer tu negocio con creatividad y tecnología.</p>
-
+            <div className={styles.textBlockWrapper}>
+              <CoolTitle>Creamos Experiencias Digitales que</CoolTitle>
+              <MachineTypeTitle
+                words={['conectan', 'sorprenden', 'venden', 'posicionan', 'trascienden', 'destacan', 'atraen']}
+                color="#B687F7" // o "linear-gradient(45deg, #fff 30%, #B687F7 100%)"
+              />
+              
+              <p className={styles.description}>
+              <strong>Diseñamos sitios web únicos y optimizamos redes sociales usando fotografías profesionales</strong> para conectar con tu audiencia y crecer tu negocio con creatividad y tecnología.</p>
+            </div>
           </div>
           
           <div className={styles.imageWrapper}>

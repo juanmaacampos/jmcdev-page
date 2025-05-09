@@ -158,6 +158,57 @@
   font-size: 1rem;
 }
 
+/* New Click/Flip cue for card front - MOVED HERE */
+.cardFront::after {
+  content: '↻'; 
+  position: absolute;
+  bottom: 8px; 
+  right: 12px; 
+  font-size: 1.6rem; 
+  line-height: 1;
+  color: rgba(163, 255, 229, 0.6); 
+  z-index: 5; 
+  pointer-events: none;
+  transform: rotate(0deg); 
+}
+
+/* Scroll cue gradient for card back - MOVED HERE */
+.cardBack::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px; /* Made gradient taller */
+  background: linear-gradient(to bottom, transparent, #18191a 95%); /* More pronounced fade */
+  pointer-events: none; 
+  z-index: 4; 
+  border-bottom-left-radius: 18px; 
+  border-bottom-right-radius: 18px;
+}
+
+/* Scroll cue arrow for card back - MOVED HERE */
+.cardBack::before { 
+  content: '▼'; /* Downwards black arrow */
+  position: absolute;
+  bottom: 5px; /* Position at the very bottom */
+  left: 50%;
+  /* transform: translateX(-50%); Combined with animation */
+  font-size: 1.2rem; /* Small arrow - Increased from 0.8rem */
+  color: rgba(163, 255, 229, 0.5); /* Themed color, semi-transparent */
+  z-index: 5; /* Above the gradient */
+  pointer-events: none;
+  animation: bobbingArrow 1.5s infinite ease-in-out;
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+}
+
+/* Style to hide the arrow when cardBack has .isScrolled class - MOVED HERE */
+.cardBack.isScrolled::before {
+  opacity: 0;
+  animation-play-state: paused; /* Optional: stop animation when hidden */
+}
+
 .cardTitle {
   margin-bottom: 0.7rem;
   font-size: 1.15rem;
@@ -262,20 +313,6 @@
     /* background, color, border-radius, box-sizing are inherited */
   }
 
-  /* New Click/Flip cue for card front */
-  .cardFront::after {
-    content: '↻'; 
-    position: absolute;
-    bottom: 8px; 
-    right: 12px; 
-    font-size: 1.6rem; 
-    line-height: 1;
-    color: rgba(163, 255, 229, 0.6); 
-    z-index: 5; 
-    pointer-events: none;
-    transform: rotate(0deg); 
-  }
-
   .cardBack {
     position: absolute; /* Ensure it's absolute */
     top: 0;
@@ -291,43 +328,6 @@
     /* padding is inherited, adjust specific padding for cues */
     padding-bottom: 40px; 
     /* background, color, border-radius, box-sizing, z-index are inherited */
-  }
-
-  /* Scroll cue gradient for card back */
-  .cardBack::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 40px; /* Made gradient taller */
-    background: linear-gradient(to bottom, transparent, #18191a 95%); /* More pronounced fade */
-    pointer-events: none; 
-    z-index: 4; 
-    border-bottom-left-radius: 18px; 
-    border-bottom-right-radius: 18px;
-  }
-
-  /* Scroll cue arrow for card back */
-  .cardBack::before { 
-    content: '▼'; /* Downwards black arrow */
-    position: absolute;
-    bottom: 5px; /* Position at the very bottom */
-    left: 50%;
-    /* transform: translateX(-50%); Combined with animation */
-    font-size: 0.8rem; /* Small arrow */
-    color: rgba(163, 255, 229, 0.5); /* Themed color, semi-transparent */
-    z-index: 5; /* Above the gradient */
-    pointer-events: none;
-    animation: bobbingArrow 1.5s infinite ease-in-out;
-    opacity: 1;
-    transition: opacity 0.3s ease-out;
-  }
-
-  /* Style to hide the arrow when cardBack has .isScrolled class */
-  .cardBack.isScrolled::before {
-    opacity: 0;
-    animation-play-state: paused; /* Optional: stop animation when hidden */
   }
 
   .iconSvgWrapper {

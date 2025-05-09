@@ -156,7 +156,9 @@ export default function Servicios() {
       >
 Transformamos <CoolTitle>tu presencia digital</CoolTitle> 
 </CoolTitle>
-
+      <p className={styles.cardInstructionText}>
+        (Haz clic en las tarjetas para ver más detalles)
+      </p>
 
       {/* Cards y sus Modals ----------------------------------------------------------------------------*/}
 

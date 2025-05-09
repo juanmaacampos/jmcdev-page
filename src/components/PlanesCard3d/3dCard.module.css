@@ -1,0 +1,78 @@
+.cardContainer {
+  background: var(--card-bg-color, rgba(22, 22, 29, 0.8));
+  border: 1px solid var(--card-border-color, rgba(255, 255, 255, 0.1));
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.1s ease-out, box-shadow 0.3s ease; /* Smooth reset for transform */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Base shadow, glow is handled by JS */
+  color: var(--card-text-color, #fff);
+  backdrop-filter: blur(5px);
+  transform-style: preserve-3d; /* Enable 3D space for children if any were transformed */
+  position: relative;
+  min-height: 450px; /* Or adjust to match original .planCard if different */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cardContainer.destacado {
+  border-color: var(--card-destacado-border-color, #B687F7); /* Updated fallback */
+  /* Base shadow for destacado, glow is handled by JS */
+  box-shadow: 0 0 15px var(--card-destacado-border-color, #B687F7), 0 10px 20px rgba(0,0,0,0.3); /* Updated fallback */
+}
+
+.cardContent {
+  /* This div ensures content is layered correctly if needed, and helps with flex layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  /* if you want text to pop out, you could add transform: translateZ(20px); here */
+}
+
+.cardContent h3 {
+  font-size: 1.8rem;
+  color: var(--card-title-color, #A3FFE5); /* Updated fallback */
+  margin-bottom: 15px;
+  text-shadow: 0 0 5px var(--card-title-color, #A3FFE5), 0 0 10px var(--card-title-color, #A3FFE5); /* Updated fallback */
+}
+
+.precio {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--card-price-text-color, #fff);
+  margin-bottom: 20px;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+.descripcion {
+  font-size: 1rem;
+  color: var(--card-description-text-color, #ccc);
+  margin-bottom: 20px;
+  min-height: 60px; /* Adjust as needed */
+}
+
+.cardContent ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 25px;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.cardContent ul li {
+  font-size: 0.95rem;
+  color: var(--card-list-item-text-color, #b0b0b0);
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.cardContent ul li::before {
+  content: "✓";
+  color: var(--card-list-item-bullet-color, #A3FFE5); /* Updated fallback */
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}

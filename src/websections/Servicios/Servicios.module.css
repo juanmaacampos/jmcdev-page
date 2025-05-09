@@ -20,6 +20,15 @@
   opacity: 1;
 }
 
+.cardInstructionText {
+  font-size: 0.85rem;
+  color: #ccc;
+  opacity: 0.8;
+  margin-top: -1.5rem; /* Adjust to position it closer to the title */
+  margin-bottom: 2.5rem; /* Keep original title margin bottom */
+  font-style: italic;
+}
+
 .serviciosGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
