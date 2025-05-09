@@ -1,30 +1,144 @@
 .procesoSection {
   padding: 4rem 0 3rem 0;
-  background: #151617;
+  background: #000000; /* Restored to likely original color */
   text-align: center;
+  overflow-x: hidden; /* Prevent horizontal scroll from AOS animations */
 }
 
 .titulo {
-  margin-bottom: 2.5rem;
+  margin-bottom: 3.5rem; /* Increased margin */
 }
 
 .pasosGrid {
   display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center; 
+  position: relative;
+  padding: 2rem 0; 
+  margin: 0 auto;
+  max-width: 900px; 
+}
+
+/* The central vertical timeline bar */
+.pasosGrid::before {
+  content: "";
+  position: absolute;
+  top: 30px; 
+  bottom: 30px; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  background-color: #A3FFE5; /* Timeline color */
+  border-radius: 2px;
+  z-index: 0; 
+}
+
+.pasoItemContainer {
+  position: relative; 
+  width: 100%; 
+  margin-bottom: 50px; 
+}
+
+.pasoItemContainer:last-child {
+  margin-bottom: 0;
 }
 
 .pasoCard {
   background: #222;
   border-radius: 16px;
   padding: 1.5rem 1.2rem;
-  width: 220px;
+  width: calc(50% - 30px); /* Card width, 30px is gap from center line */
   color: #fff;
-  box-shadow: 0 4px 24px #0004;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+  position: relative; 
+  z-index: 1; 
+  box-sizing: border-box;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  text-align: left; /* Align text to left for better icon placement */
 }
 
-h4 {
+.pasoCard:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(163, 255, 229, 0.2);
+}
+
+.pasoCard::after {
+  content: "";
+  position: absolute;
+  top: 50%; 
+  transform: translateY(-50%);
+  width: 20px; /* Dot content width */
+  height: 20px; /* Dot content height */
+  border-radius: 50%;
+  background-color: #151617; /* Match page background to "punch through" */
+  border: 4px solid #A3FFE5; /* Border color matches timeline */
+  z-index: 2; 
+}
+
+.pasoTituloContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem; /* Space between title group and description */
+}
+
+.pasoIcon {
+  margin-right: 0.75rem; /* Space between icon and title text */
+  color: #A3FFE5; /* Icon color, same as title */
+  display: flex; /* Helps if icon is an SVG for alignment */
+  align-items: center; /* Vertical alignment for icon */
+}
+
+/* ODD items (1st, 3rd, ...) - Card on the LEFT */
+.pasoItemContainer:nth-child(odd) .pasoCard {
+  margin-left: 0; 
+  margin-right: calc(50% + 30px); /* Pushes card to left half, leaving 30px gap from center */
+}
+
+/* Dot for ODD cards (card on left, dot on its right, connecting to center line) */
+.pasoItemContainer:nth-child(odd) .pasoCard::after {
+  /* Dot's center should be 30px (gap) from card's right edge. Dot radius is 10px (20px/2). */
+  right: calc(-1 * (30px + (20px / 2))); /* Positions dot's right edge, so center is at 30px from card edge */
+}
+
+/* EVEN items (2nd, 4th, ...) - Card on the RIGHT */
+.pasoItemContainer:nth-child(even) .pasoCard {
+  margin-left: calc(50% + 30px); /* Pushes card to right half, starting after 30px gap from center */
+  margin-right: 0;
+}
+
+/* Dot for EVEN cards (card on right, dot on its left, connecting to center line) */
+.pasoItemContainer:nth-child(even) .pasoCard::after {
+  /* Dot's center should be 30px (gap) from card's left edge. Dot radius is 10px. */
+  left: calc(-1 * (30px + (20px / 2))); /* Positions dot's left edge, so center is at 30px from card edge */
+}
+
+h4 { /* Ensure h4 style is consistent if not globally defined elsewhere */
   color: #A3FFE5;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0rem; /* Removed margin as it's handled by pasoTituloContainer */
+  font-size: 1.15rem; /* Adjust as needed */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .pasosGrid {
+    padding: 2rem 20px; /* Adjust overall padding */
+  }
+  .pasosGrid::before { /* Move timeline bar to the left */
+    left: 20px; 
+    transform: translateX(0);
+  }
+
+  .pasoCard {
+    width: calc(100% - 40px); /* Card takes most width, leaving space for dot on left */
+    margin-left: 40px !important; /* All cards to the right of the timeline (40px from container left) */
+    margin-right: 0 !important; /* Reset right margin */
+  }
+
+  /* Ensure dot is positioned correctly for all cards on mobile (left of card) */
+  .pasoItemContainer .pasoCard::after { 
+    /* Card starts 40px from left. Timeline is at 20px from left. Gap is 20px. */
+    /* Dot's center should be 20px (gap_mobile) from card's left edge. */
+    left: calc(-1 * (20px + (20px / 2))); /* -30px */
+    right: auto; /* Remove any right positioning */
+  }
 }

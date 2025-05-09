@@ -60,3 +60,48 @@ body::-webkit-scrollbar-thumb:hover {
   scrollbar-width: thin;
   scrollbar-color: #663399 #0f0f0f;
 }
+
+/* Styles for Transition Elements */
+/* .black-overlay (fixed version) is removed or commented if not needed globally */
+/*
+.black-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000; 
+  opacity: 0;
+  z-index: 40; 
+  pointer-events: none;
+}
+*/
+
+/* .transition-section-black is no longer needed as VideoSection handles its own visuals */
+/*
+.transition-section-black { 
+  height: 100vh;
+  background-color: #000000;
+  position: relative; 
+  z-index: 100; 
+}
+*/
+
+.final-logo-display {
+  position: absolute; 
+  opacity: 0;
+  /* z-index relative to its parent, procesoWrapperRef. 
+     Needs to be above Proceso's content. */
+  z-index: 5; 
+  width: 150px; 
+  height: auto;
+  pointer-events: none;
+}
+
+#servicios {
+  position: relative; 
+  /* z-index: 10; // May not be needed if transition-section-black handles covering */
+}
+
+/* ProcesoWrapperRef has z-index: 1 in its inline style in App.jsx, 
+   so it's below transition-section-black */

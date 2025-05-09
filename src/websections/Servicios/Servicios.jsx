@@ -23,7 +23,7 @@ import imgDiseno from "../../assets/images/modals_assets/diseño.jpg";
 import imgHosting from "../../assets/images/modals_assets/hosting.webp";
 import imgMantenimiento from "../../assets/images/modals_assets/mantenimiento.png";
 
-import parallaxVideo from "../../assets/images/parallax_servicio.mp4";
+import parallaxVideo from "../../assets/videos/parallax_servicio.mp4";
 import parallaxPoster from "../../assets/images/parallax_service.png";
 
 export default function Servicios() {

@@ -1,0 +1,29 @@
+.videoSectionContainer {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden; /* Ensures video doesn't spill out */
+  background-color: #000; /* Fallback if video doesn't load */
+}
+
+.videoBackground {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.videoOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000; /* Initial color of the overlay, will be masked */
+  z-index: 2; /* Above the video, below any content on top of overlay */
+  /* Mask properties will be applied by GSAP via App.jsx */
+}
